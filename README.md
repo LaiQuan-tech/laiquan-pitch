@@ -2,8 +2,9 @@
 
 萊乾資訊 LaiQuan — **公司介紹簡報**（Apple 風全螢幕 pitch deck，沿用 `LaiQuan-tech/nina-pitch`、`LaiQuan-tech/aster-pitch` 的版型）。
 
+- 線上：<https://laiquan-pitch.vercel.app>
 - 純靜態站（單一 `index.html`），無建置流程。
-- 建議部署：Vercel 專案 framework=static，**push 到 `main` → 自動部署**（與 nina-pitch / aster-pitch 相同）。
+- **push 到 `main` → Vercel 自動部署**（Vercel 專案 `laiquan-pitch`，framework=static，原生 GitHub 整合）。
 
 ## 內容（12 張投影片）
 
