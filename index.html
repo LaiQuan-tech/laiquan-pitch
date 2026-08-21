@@ -78,10 +78,13 @@
   .punch .fine{color:var(--olive);}
   .dark .fine{color:#8a8272;}
 
-  /* 強調：細線，不是色塊 */
-  em{font-style:normal;border-bottom:.07em solid var(--yellow);padding-bottom:.05em;}
-  .dark em{border:0;color:var(--yellow);}
-  .punch em{border-bottom-color:var(--ink);}
+  /* 強調：只換顏色。不畫底線、不填色塊。
+     ⚠️ 底線在 92px 的 CJK 標題上會落在行框最底部、離字形很遠，看起來像一條
+     沒來由的橫線——試過了，不要再加回來。黃底頁請不要用 <em>：黃色上面
+     沒有比黑字更醒目的顏色，強調在那裡本來就不成立。 */
+  em{font-style:normal;color:#8a6d00;}
+  .dark em{color:var(--yellow);}
+  .punch em{color:inherit;}
 
   .bolts{position:absolute;inset:0;z-index:1;pointer-events:none;}
   .bolt{position:absolute;clip-path:polygon(58% 0,18% 52%,46% 52%,30% 100%,82% 40%,52% 40%);}

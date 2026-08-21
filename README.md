@@ -22,9 +22,16 @@
 | 大標 `h2` | 44px | 92px |
 | 封面 `h1` | 54px | 128px |
 
-**2. 標題不用色塊。**
-眉標是純文字＋字距（不是黑底黃字膠囊）、強調 `<em>` 是細底線（不是黃色螢光塊）、
-客戶名 `.who` 是純文字（不是黃底藥丸）。新增元素請沿用這個規則。
+**2. 標題不用色塊，也不畫線。**
+眉標是純文字＋字距（不是黑底黃字膠囊）、客戶名 `.who` 是純文字（不是黃底藥丸）、
+強調 `<em>` **只換顏色**（`#8a6d00`；深色頁換亮黃）。
+
+⚠️ `<em>` 曾經用過黃色底線，**踩過雷不要再加回來**：92px 的 CJK 標題行框很高，
+底線會落在離字形很遠的位置，看起來像一條沒來由的橫線飄在標題下方。
+黃底頁不要用 `<em>`——黃色上面沒有比黑字更醒目的顏色，強調在那裡本來就不成立。
+
+驗證腳本裡的 `strayLines` 會掃全頁，把「細長色條」與「只有單邊 border 的寬元素」
+一律抓出來，**必須是 0**。
 
 ### 版面一致性（同一件事只有一種畫法）
 
@@ -103,11 +110,15 @@ var min=999;['.lead','.cell .d','.steps .bs','.stats .l','.fine','.eyebrow','.ce
   .forEach(q=>document.querySelectorAll(q).forEach(e=>{var v=parseFloat(getComputedStyle(e).fontSize);if(v<min)min=v;}));
 var blocks=[];['.eyebrow','em','.cell .who'].forEach(q=>document.querySelectorAll(q).forEach(e=>{
   if(getComputedStyle(e).backgroundColor!=='rgba(0, 0, 0, 0)')blocks.push(q);}));
+var stray=0;document.querySelectorAll('.slide *').forEach(el=>{var cs=getComputedStyle(el),r=el.getBoundingClientRect();
+  if(r.width>=80&&r.height>0&&r.height<=14&&cs.backgroundColor!=='rgba(0, 0, 0, 0)')stray++;
+  var bw=['Top','Right','Bottom','Left'].map(sd=>parseFloat(cs['border'+sd+'Width'])||0);
+  if(bw.filter(v=>v>0).length===1&&Math.max(...bw)>=2&&r.width>=80)stray++;});
 var spec={};document.querySelectorAll('.icon svg').forEach(sv=>{var k=[sv.getAttribute('viewBox'),
   sv.getAttribute('stroke-width'),sv.getAttribute('fill'),sv.getAttribute('stroke-linecap'),
   sv.getAttribute('stroke-linejoin')].join('|');spec[k]=(spec[k]||0)+1;});
 return JSON.stringify({minTextPx:min,orphans:orph,overflow:over.filter(x=>x.over>0),
-  colorBlockOnTitles:blocks,iconSpecs:spec});})()
+  colorBlockOnTitles:blocks,strayLines:stray,iconSpecs:spec});})()
 ```
 
 孤行、溢出、icon 規格三項都要「只有一種／空陣列」，最小字級要 ≥30，才算過。
