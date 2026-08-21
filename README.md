@@ -117,16 +117,46 @@ var stray=0;document.querySelectorAll('.slide *').forEach(el=>{var cs=getCompute
 var spec={};document.querySelectorAll('.icon svg').forEach(sv=>{var k=[sv.getAttribute('viewBox'),
   sv.getAttribute('stroke-width'),sv.getAttribute('fill'),sv.getAttribute('stroke-linecap'),
   sv.getAttribute('stroke-linejoin')].join('|');spec[k]=(spec[k]||0)+1;});
+function L(c){var m=(c.match(/[\d.]+/g)||[0,0,0]).map(Number).slice(0,3).map(v=>{v/=255;
+  return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});return .2126*m[0]+.7152*m[1]+.0722*m[2];}
+function bgOf(el){var n=el;while(n&&n!==document.documentElement){var b=getComputedStyle(n).backgroundColor;
+  if(b&&b!=='rgba(0, 0, 0, 0)')return b;n=n.parentElement;}return getComputedStyle(document.body).backgroundColor;}
+var lowC=99;document.querySelectorAll('.slide .eyebrow,.slide h1,.slide h2,.slide .lead,.slide .fine,.slide .cell .k,.slide .cell .d,.slide .cell .who,.slide .steps .bt,.slide .steps .bs,.slide .stats .l,.slide .tags span,.slide em').forEach(el=>{
+  if(!el.textContent.trim())return;var a=L(getComputedStyle(el).color),b=L(bgOf(el));
+  var r=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);if(r<lowC)lowC=+r.toFixed(2);});
 return JSON.stringify({minTextPx:min,orphans:orph,overflow:over.filter(x=>x.over>0),
-  colorBlockOnTitles:blocks,strayLines:stray,iconSpecs:spec});})()
+  colorBlockOnTitles:blocks,strayLines:stray,iconSpecs:spec,lowestContrast:lowC});})()
 ```
 
-孤行、溢出、icon 規格三項都要「只有一種／空陣列」，最小字級要 ≥30，才算過。
+孤行／溢出／色塊／多餘線條要全空，`iconSpecs` 只能有一種，`minTextPx` ≥ 30，`lowestContrast` ≥ 3。
 
-## 品牌
+## 配色：藍綠 × 深淺紫
 
-奶油底 `#fffbec`／墨黑 `#1a1a1a`／亮黃 `#ffce00`；深色頁 `#15130f`，巨大單字用亮黃。
-Baloo 2 + Noto Sans TC 極粗圓體、⚡ 閃電識別、3px 黑框＋硬陰影。
+取自台灣國家婦女館年度常設展主視覺。深紫與藍綠拉高對比，做出張力與現代感。
+
+| 角色 | 名稱 | 色碼 | 用在哪 |
+|---|---|---|---|
+| **主色** | 深藍紫 | `#2e1a5e` | 內文與標題顏色、卡片外框、深色頁底 `#231149` |
+| **主色** | 葡萄紫 | `#5b2e91` | 深色頁的卡片外框 |
+| 副色 | 孔雀藍 | `#12707f` | 淺底頁的 `<em>` 強調、清單編號 |
+| 副色 | 藍綠 | `#1f9e9a` | 備用 |
+| 副色 | 綠松石 | `#3fc7c2` | **卡片實心投影**、icon、深色頁強調、綠松石整頁底 |
+| 點綴 | 淡紫 | `#bfa0d4` | 封面與結尾整頁底 |
+| 點綴 | 淺粉 | `#f2a0b5` | 保留備用 |
+
+**張力來自兩件事**：白卡片 3px 深藍紫外框 ＋ **綠松石實心位移投影**（不是灰陰影），
+以及六種底色的節奏——淡紫（2）／深藍紫（7）／淡紫底（5）／白（4）／綠松石（2）／淡紫中調（2）。
+
+⚠️ **`--gray2` 不可以調淺。** 淡紫底本身就亮，`#9c8fb4` 只有 2.2:1 不合格，
+現在的 `#7a6c98` 在最亮與最暗的底色上都 ≥3.5:1。驗證腳本會逐一算對比。
+
+字體維持 Baloo 2 + Noto Sans TC 極粗圓體；⚡ 閃電識別保留但改成綠松石，
+結尾那顆黃色 ⚡ emoji 已移除（會跟紫綠打架）。
+
+## 黃色版對照
+
+改配色前的黃黑版凍結在 [`archive-yellow.html`](archive-yellow.html)（線上：`/archive-yellow.html`），
+方便並排比色。**那是快照，不同步更新**——內容改動只會進 `index.html`。決定好配色後可以直接刪掉。
 
 ## 未收錄（刻意）
 
