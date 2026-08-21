@@ -26,8 +26,36 @@
 眉標是純文字＋字距（不是黑底黃字膠囊）、強調 `<em>` 是細底線（不是黃色螢光塊）、
 客戶名 `.who` 是純文字（不是黃底藥丸）。新增元素請沿用這個規則。
 
-**3. 斷行後不留兩字孤行。**
-每個 `<br>` 前後至少四個實字。全簡報目前最短的一行是 4 字。改完用下方腳本重驗。
+### 版面一致性（同一件事只有一種畫法）
+
+- **格線只有 `g2` 與 `g3`**，沒有 `g4`。
+- **`.grid` 裡的 `.cell` 一律加 `.card`**，不要有的有框有的沒框。
+- **風林火山四頁排版完全相同**（icon 在左、文字在右），不做左右交錯。
+- **每頁結構固定**：眉標 → 標題 → 一個內容區塊 → 選配註腳。
+  例外只有風林火山四頁：以 `.fs .zh`（疾如風…）取代眉標，那是收尾樂章的專用版型。
+- **步驟副標一律七字、無標點、結構平行**（規則寫死不用猜／AI 引導改到對／直接列印不重打）。
+
+### icon 規格（新增 icon 必須照抄）
+
+風林火山四頁與開場的 icon 列，全部是同一組參數的線性 icon：
+
+```
+viewBox="0 0 24 24"  fill="none"  stroke="currentColor"
+stroke-width="1.6"   stroke-linecap="round"  stroke-linejoin="round"
+```
+
+驗證腳本會把每個 `.icon svg` 的這五個屬性串起來比對，**必須只出現一種組合**。
+火的 bbox 比其他三個窄（14 vs 20–22），那是火焰形狀本來就瘦長，不是規格不一致。
+
+**3. 不留三字以內的孤行 —— 含自然換行。**
+不只 `<br>` 強制斷行，**卡片裡自己折行的最後一行也算**（這是最容易漏掉的）。
+驗證腳本會用 Range + getClientRects 量測實際渲染的行框，逐字判斷最後一行有幾個實字。
+目前四種尺寸下孤行數皆為 0。
+
+治本的三個手段，照這個順序用：
+1. **加寬欄位** —— 全簡報只用 `g2`／`g3`，不要用 `g4`（四欄在 30px 字級下每行只剩約 6 字，必爆孤行）
+2. **`text-wrap:balance`** —— 已套在 `.lead` / `.fine` / `.cell .d` / `.cell .k` / `.steps .bs`，行長自動均分
+3. **刪字** —— 前兩項還救不了才動文案
 
 ## 內容（22 張）
 
@@ -36,8 +64,8 @@
 → ⑥行動 App → ⑦提案簡報 → 技術棧 → 服務過的產業
 → **風林火山 → 疾如風 → 徐如林 → 侵掠如火 → 不動如山** → 聯絡我們
 
-最後五頁是收尾錨點：以風林火山四個字形容 AI，深色底＋巨大單字，
-左右交錯排版（`.fs` / `.fs.flip`）。這段是簡報的記憶點，不要拿掉或縮短。
+最後五頁是收尾錨點：以風林火山形容 AI，深色底，**用線性 icon 呈現、不用文字**
+（開場頁四個 icon 並排先建立記憶，後面四頁各放大一個）。這段是簡報的記憶點，不要拿掉或縮短。
 
 內容依據 `../LaiQuan-服務盤點-2026.md`（掃過 LaiQuan-tech 全部 24 個 repo 的 README、
 路由結構與資料庫 migration 整理而成）。
@@ -58,16 +86,31 @@
 
 ```js
 (function(){document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));
-var r=[...document.querySelectorAll('.slide')].map(s=>{var i=s.querySelector('.inner'),c=getComputedStyle(s);
+var PUNCT=/[，。、·　\s：；！？（）＋\+]/, orph=[];
+document.querySelectorAll('h1,h2,.lead,.fine,.cell .d,.cell .k,.cell .who,.steps .bt,.steps .bs,.stats .l,.biglist li,.tags span,.fs .zh,.cbox .cv').forEach(el=>{
+  var w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null),chars=[],n;
+  while(n=w.nextNode()){for(var i=0;i<n.data.length;i++)chars.push({node:n,off:i,ch:n.data[i]});}
+  if(!chars.length)return; var lines=[],cur=null,lt=null;
+  chars.forEach(c=>{var r=document.createRange();r.setStart(c.node,c.off);r.setEnd(c.node,c.off+1);
+    var q=r.getBoundingClientRect(); if(!q.width&&!q.height)return; var t=Math.round(q.top);
+    if(lt===null||Math.abs(t-lt)>4){cur=[];lines.push(cur);lt=t;} cur.push(c.ch);});
+  if(lines.length<2)return;
+  if(lines[lines.length-1].filter(c=>!PUNCT.test(c)).length<=3)
+    orph.push(el.closest('.slide').id+' ['+lines.map(l=>l.join('')).join(' / ')+']');});
+var over=[...document.querySelectorAll('.slide')].map(s=>{var i=s.querySelector('.inner'),c=getComputedStyle(s);
   return {id:s.id,over:Math.ceil(i.scrollHeight+parseFloat(c.paddingTop)+parseFloat(c.paddingBottom))-innerHeight};});
 var min=999;['.lead','.cell .d','.steps .bs','.stats .l','.fine','.eyebrow','.cell .who','.tags span']
   .forEach(q=>document.querySelectorAll(q).forEach(e=>{var v=parseFloat(getComputedStyle(e).fontSize);if(v<min)min=v;}));
 var blocks=[];['.eyebrow','em','.cell .who'].forEach(q=>document.querySelectorAll(q).forEach(e=>{
-  var bg=getComputedStyle(e).backgroundColor;if(bg!=='rgba(0, 0, 0, 0)')blocks.push(q);}));
-return JSON.stringify({minTextPx:min,colorBlockOnTitles:blocks,overflow:r.filter(x=>x.over>0)});})()
+  if(getComputedStyle(e).backgroundColor!=='rgba(0, 0, 0, 0)')blocks.push(q);}));
+var spec={};document.querySelectorAll('.icon svg').forEach(sv=>{var k=[sv.getAttribute('viewBox'),
+  sv.getAttribute('stroke-width'),sv.getAttribute('fill'),sv.getAttribute('stroke-linecap'),
+  sv.getAttribute('stroke-linejoin')].join('|');spec[k]=(spec[k]||0)+1;});
+return JSON.stringify({minTextPx:min,orphans:orph,overflow:over.filter(x=>x.over>0),
+  colorBlockOnTitles:blocks,iconSpecs:spec});})()
 ```
 
-三個都要是空的／≥30 才算過。斷行檢查另用 `docs/` 無、直接看每個 `<br>` 兩側字數。
+孤行、溢出、icon 規格三項都要「只有一種／空陣列」，最小字級要 ≥30，才算過。
 
 ## 品牌
 

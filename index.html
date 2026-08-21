@@ -71,10 +71,10 @@
 
   h1{font-family:var(--display);font-size:clamp(54px,9.2vw,128px);font-weight:800;letter-spacing:-.015em;line-height:1.04;text-wrap:balance;}
   h2{font-family:var(--display);font-size:clamp(44px,6.4vw,92px);font-weight:800;letter-spacing:-.01em;line-height:1.1;text-wrap:balance;}
-  .lead{font-size:clamp(30px,2.3vw,38px);font-weight:500;color:var(--gray);line-height:1.5;max-width:960px;margin:clamp(16px,2.2vh,30px) auto 0;}
+  .lead{font-size:clamp(30px,2.3vw,38px);font-weight:500;color:var(--gray);line-height:1.5;max-width:960px;margin:clamp(16px,2.2vh,30px) auto 0;text-wrap:balance;}
   .dark .lead{color:#c4bcaa;}
   .punch .lead{color:var(--ink-soft);}
-  .fine{font-size:clamp(30px,1.6vw,33px);color:var(--gray2);margin-top:clamp(14px,1.8vh,24px);font-weight:600;}
+  .fine{font-size:clamp(30px,1.6vw,33px);color:var(--gray2);margin-top:clamp(14px,1.8vh,24px);font-weight:600;text-wrap:balance;}
   .punch .fine{color:var(--olive);}
   .dark .fine{color:#8a8272;}
 
@@ -115,8 +115,8 @@
   .g4{grid-template-columns:repeat(4,1fr);}
   @media(max-width:980px){.g3,.g4{grid-template-columns:1fr 1fr;}}
   @media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr;}}
-  .cell .k{font-family:var(--display);font-size:clamp(34px,2.7vw,44px);font-weight:800;line-height:1.2;margin-bottom:10px;}
-  .cell .d{font-size:clamp(30px,1.75vw,34px);color:var(--gray);line-height:1.5;font-weight:500;}
+  .cell .k{font-family:var(--display);font-size:clamp(34px,2.7vw,44px);font-weight:800;line-height:1.2;margin-bottom:10px;text-wrap:balance;}
+  .cell .d{font-size:clamp(30px,1.75vw,34px);color:var(--gray);line-height:1.5;font-weight:500;text-wrap:balance;}
   .dark .cell .d{color:#b0a794;}
   /* 客戶名：純文字，不用色塊 */
   .cell .who{display:block;font-size:clamp(30px,1.6vw,32px);font-weight:800;color:var(--gray2);letter-spacing:.1em;margin-bottom:11px;}
@@ -129,7 +129,7 @@
   .steps .bx{background:#fff;border:3px solid var(--ink);border-radius:22px;padding:clamp(20px,2.3vw,32px);text-align:center;
     box-shadow:6px 7px 0 rgba(26,26,26,.13);display:flex;flex-direction:column;justify-content:center;}
   .steps .bt{font-family:var(--display);font-size:clamp(34px,2.8vw,44px);font-weight:800;line-height:1.18;}
-  .steps .bs{font-size:clamp(30px,1.75vw,34px);color:var(--gray);margin-top:9px;line-height:1.45;font-weight:500;}
+  .steps .bs{font-size:clamp(30px,1.75vw,34px);color:var(--gray);margin-top:9px;line-height:1.45;font-weight:500;text-wrap:balance;}
   .steps .ar{display:flex;align-items:center;justify-content:center;font-size:clamp(26px,3vw,42px);font-weight:800;}
 
   /* ── 標籤 ── */
@@ -141,11 +141,12 @@
   /* ── 風林火山 ── */
   .fs{display:grid;grid-template-columns:auto 1fr;gap:clamp(36px,6vw,96px);align-items:center;text-align:left;margin-top:clamp(10px,1.6vh,22px);}
   @media(max-width:900px){.fs{grid-template-columns:1fr;gap:20px;text-align:center;justify-items:center;}}
-  .fs.flip{grid-template-columns:1fr auto;}
-  .fs.flip .glyph{order:2;}
-  @media(max-width:900px){.fs.flip{grid-template-columns:1fr;}.fs.flip .glyph{order:0;}}
-  .glyph{font-family:var(--sans);font-weight:900;font-size:clamp(150px,20vw,320px);line-height:.82;
-    color:var(--yellow);letter-spacing:0;}
+  /* icon 一律同規格：24x24 viewBox、stroke-width 1.6、round cap/join、無填色。
+     新增第五個 icon 也照這組參數，否則四張並排時筆畫粗細會不一致。 */
+  .icon{width:clamp(140px,17vw,260px);height:clamp(140px,17vw,260px);color:var(--yellow);flex:none;}
+  .icon svg{width:100%;height:100%;display:block;}
+  .iconrow{display:flex;justify-content:center;gap:clamp(20px,4vw,64px);margin-top:clamp(20px,3vh,40px);}
+  .iconrow .icon{width:clamp(64px,8vw,116px);height:clamp(64px,8vw,116px);}
   .fs .zh{font-family:var(--display);font-size:clamp(30px,2.4vw,40px);font-weight:800;color:#8a8272;letter-spacing:.14em;margin-bottom:14px;}
   .fs h2{line-height:1.14;}
   .fs .lead{margin-left:0;margin-right:0;max-width:none;}
@@ -177,7 +178,7 @@
     .fine{margin-top:12px;}
     .grid,.steps,.stats,.tags,.biglist{margin-top:20px;}
     .card,.steps .bx{padding:20px;}
-    .glyph{font-size:clamp(140px,17vw,240px);}
+    .icon{width:clamp(120px,14vw,190px);height:clamp(120px,14vw,190px);}
   }
 </style>
 </head>
@@ -234,8 +235,8 @@
     <span class="eyebrow reveal">01　形象官網 ＋ 後台</span>
     <h2 class="reveal" style="transition-delay:.05s">網站要客戶<br><em>自己改得動</em>。</h2>
     <div class="grid g3 reveal" style="transition-delay:.14s">
-      <div class="cell card"><span class="who">台大農經系</span><div class="k">系所官網</div><div class="d">課程、師資、公告都自己增修。</div></div>
-      <div class="cell card"><span class="who">國際花藝協會</span><div class="k">證照查詢</div><div class="d">會員輸入姓名即時查到證照。</div></div>
+      <div class="cell card"><span class="who">台大農經系</span><div class="k">系所官網</div><div class="d">課程、師資、公告自己改。</div></div>
+      <div class="cell card"><span class="who">國際花藝協會</span><div class="k">證照查詢</div><div class="d">輸入姓名即時查證照。</div></div>
       <div class="cell card"><span class="who">國際扶輪年會</span><div class="k">多語系年會</div><div class="d">議程可在後台即時覆寫。</div></div>
     </div>
   </div>
@@ -246,11 +247,11 @@
   <div class="inner">
     <span class="eyebrow reveal">02　電商與交易系統</span>
     <h2 class="reveal" style="transition-delay:.05s">從購物車<br>到點數帳本。</h2>
-    <div class="grid g4 reveal" style="transition-delay:.14s">
-      <div class="cell"><div class="k">雙價格</div><div class="d">同一件商品可租、可買。</div></div>
-      <div class="cell"><div class="k">會員等級</div><div class="d">付款後自動升級。</div></div>
-      <div class="cell"><div class="k">點數飛輪</div><div class="d">回饋、折抵、到期沖銷。</div></div>
-      <div class="cell"><div class="k">金流發票</div><div class="d">串接金流與電子發票。</div></div>
+    <div class="grid g2 reveal" style="transition-delay:.14s">
+      <div class="cell card"><div class="k">雙價格</div><div class="d">同一件商品可租、可買。</div></div>
+      <div class="cell card"><div class="k">會員等級</div><div class="d">付款後自動升級。</div></div>
+      <div class="cell card"><div class="k">點數飛輪</div><div class="d">回饋、折抵、到期沖銷。</div></div>
+      <div class="cell card"><div class="k">金流發票</div><div class="d">串接金流與電子發票。</div></div>
     </div>
   </div>
 </section>
@@ -270,11 +271,11 @@
     <span class="eyebrow reveal">案例　·　美強光廣告科技</span>
     <h2 class="reveal" style="transition-delay:.05s">收稿這件事，<br>系統自己判斷。</h2>
     <div class="steps reveal" style="transition-delay:.14s">
-      <div class="bx"><div class="bt">檔名自動驗證</div><div class="bs">規則寫死，不靠 AI 猜</div></div>
+      <div class="bx"><div class="bt">檔名自動驗證</div><div class="bs">規則寫死不用猜</div></div>
       <div class="ar" aria-hidden="true">→</div>
-      <div class="bx"><div class="bt">錯的當場不收</div><div class="bs">AI 引導客戶改到對</div></div>
+      <div class="bx"><div class="bt">錯的當場不收</div><div class="bs">AI 引導改到對</div></div>
       <div class="ar" aria-hidden="true">→</div>
-      <div class="bx"><div class="bt">對的自動建單</div><div class="bs">直接列印，不用重打</div></div>
+      <div class="bx"><div class="bt">對的自動建單</div><div class="bs">直接列印不重打</div></div>
     </div>
     <p class="fine reveal" style="transition-delay:.24s">商品名稱自動比對 ERP 主檔 699 筆帶出</p>
   </div>
@@ -300,8 +301,8 @@
     <span class="eyebrow reveal">04　人資與內部管理</span>
     <h2 class="reveal" style="transition-delay:.05s">你的系統，<br>掛<em>你的招牌</em>。</h2>
     <div class="grid g2 reveal" style="transition-delay:.14s">
-      <div class="cell card"><div class="k">白標</div><div class="d">介面、Logo、網址全是貴公司的樣子，員工看不到我們的名字。</div></div>
-      <div class="cell card"><div class="k">多租戶</div><div class="d">分公司、分店各自一套獨立帳本，資料互不相通，總部才看得到全貌。</div></div>
+      <div class="cell card"><div class="k">白標</div><div class="d">介面、Logo、網址都是貴公司的樣子，看不到我們的名字。</div></div>
+      <div class="cell card"><div class="k">多租戶</div><div class="d">分公司、分店各自獨立，資料互不相通，總部才看得到全貌。</div></div>
     </div>
     <p class="fine reveal" style="transition-delay:.22s">打卡　·　排班　·　簽核　·　工時　·　台灣薪資法規　·　考核　·　招募</p>
   </div>
@@ -312,11 +313,11 @@
   <div class="inner">
     <span class="eyebrow reveal">05　AI 應用</span>
     <h2 class="reveal" style="transition-delay:.05s">AI 有四種<br>不同的用法。</h2>
-    <div class="grid g4 reveal" style="transition-delay:.14s">
-      <div class="cell"><div class="k">數位人</div><div class="d">會對話，答案有出處。</div></div>
-      <div class="cell"><div class="k">現場互動</div><div class="d">展場的語音裝置。</div></div>
-      <div class="cell"><div class="k">自動報價</div><div class="d">對話長出報價單。</div></div>
-      <div class="cell"><div class="k">影像處理</div><div class="d">自動去背與合成。</div></div>
+    <div class="grid g2 reveal" style="transition-delay:.14s">
+      <div class="cell card"><div class="k">數位人</div><div class="d">會對話，答案有出處。</div></div>
+      <div class="cell card"><div class="k">現場互動</div><div class="d">展場的語音裝置。</div></div>
+      <div class="cell card"><div class="k">自動報價</div><div class="d">對話長出報價單。</div></div>
+      <div class="cell card"><div class="k">影像處理</div><div class="d">自動去背與合成。</div></div>
     </div>
   </div>
 </section>
@@ -327,9 +328,9 @@
     <span class="eyebrow reveal">案例　·　婦女權益促進發展基金會</span>
     <h2 class="reveal" style="transition-delay:.05s">用真人的臉做 AI，<br>難的不是技術。</h2>
     <div class="grid g3 reveal" style="transition-delay:.14s">
-      <div class="cell card"><div class="k">檢索先擋</div><div class="d">想套話，AI 根本不會被呼叫。</div></div>
-      <div class="cell card"><div class="k">輸出再擋</div><div class="d">政治表態、虛構內容都攔下。</div></div>
-      <div class="cell card"><div class="k">全程標示</div><div class="d">浮水印、免責、不給搜尋收錄。</div></div>
+      <div class="cell card"><div class="k">檢索先擋</div><div class="d">想套話，AI 不會被呼叫。</div></div>
+      <div class="cell card"><div class="k">輸出再擋</div><div class="d">政治表態、虛構內容攔下。</div></div>
+      <div class="cell card"><div class="k">全程標示</div><div class="d">浮水印、免責、不給收錄。</div></div>
     </div>
   </div>
 </section>
@@ -406,6 +407,12 @@
     <span class="eyebrow reveal">我們怎麼看 AI</span>
     <h1 class="reveal" style="transition-delay:.06s;letter-spacing:.06em">風林火山</h1>
     <p class="lead reveal" style="transition-delay:.16s">其疾如風，其徐如林，<br>侵掠如火，不動如山。</p>
+    <div class="iconrow reveal" style="transition-delay:.24s" aria-hidden="true">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
+    </div>
   </div>
 </section>
 
@@ -413,7 +420,7 @@
 <section class="slide dark" id="s18" data-label="疾如風">
   <div class="inner">
     <div class="fs">
-      <div class="glyph reveal">風</div>
+      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">疾如風</div>
         <h2 class="reveal" style="transition-delay:.12s">毫秒之間，<br>答案就到了。</h2>
@@ -426,8 +433,8 @@
 <!-- 19 林 -->
 <section class="slide dark" id="s19" data-label="徐如林">
   <div class="inner">
-    <div class="fs flip">
-      <div class="glyph reveal">林</div>
+    <div class="fs">
+      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">徐如林</div>
         <h2 class="reveal" style="transition-delay:.12s">資料再多，<br>依然井然有序。</h2>
@@ -441,7 +448,7 @@
 <section class="slide dark" id="s20" data-label="侵掠如火">
   <div class="inner">
     <div class="fs">
-      <div class="glyph reveal">火</div>
+      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">侵掠如火</div>
         <h2 class="reveal" style="transition-delay:.12s">一旦動起來，<br>就是燎原之勢。</h2>
@@ -454,8 +461,8 @@
 <!-- 21 山 -->
 <section class="slide dark" id="s21" data-label="不動如山">
   <div class="inner">
-    <div class="fs flip">
-      <div class="glyph reveal">山</div>
+    <div class="fs">
+      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">不動如山</div>
         <h2 class="reveal" style="transition-delay:.12s">外面再吵，<br>核心紋風不動。</h2>
