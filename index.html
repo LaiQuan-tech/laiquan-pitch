@@ -191,8 +191,14 @@
      新增第五個 icon 也照這組參數，否則四張並排時筆畫粗細會不一致。 */
   .icon{width:clamp(140px,17vw,260px);height:clamp(140px,17vw,260px);color:var(--turq);flex:none;}
   .icon svg{width:100%;height:100%;display:block;}
-  .iconrow{display:flex;justify-content:center;gap:clamp(20px,4vw,64px);margin-top:clamp(20px,3vh,40px);}
-  .iconrow .icon{width:clamp(64px,8vw,116px);height:clamp(64px,8vw,116px);}
+  .iconrow{display:flex;justify-content:center;align-items:flex-start;gap:clamp(16px,3.2vw,52px);margin-top:clamp(18px,2.6vh,34px);}
+  .iconrow .ir{display:flex;flex-direction:column;align-items:center;gap:9px;}
+  .iconrow .icon{width:clamp(56px,6.4vw,92px);height:clamp(56px,6.4vw,92px);}
+  .iconrow .irz{font-family:var(--display);font-size:clamp(30px,1.6vw,32px);font-weight:800;letter-spacing:.1em;color:var(--pink);}
+  .iconrow .irn{font-family:var(--display);font-size:clamp(30px,1.8vw,34px);font-weight:800;color:#fff;text-wrap:balance;}
+  .turq .iconrow .icon{color:var(--violet-deep);}
+  .turq .iconrow .irz{color:var(--on-turq);}
+  .turq .iconrow .irn{color:var(--violet-deep);}
   .fs .zh{font-family:var(--display);font-size:clamp(30px,2.4vw,40px);font-weight:800;color:var(--pink);letter-spacing:.14em;margin-bottom:14px;}
   .fs h2{line-height:1.14;}
   .fs .lead{margin-left:0;margin-right:0;max-width:none;}
@@ -232,7 +238,7 @@
 <body>
 
 <div class="progress"><i id="pfill"></i></div>
-<div class="pager" id="pager"><span class="mk" id="pmk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z" fill="#2ad4cd"/></svg></span><span class="no" id="pno"><b id="pnum">1</b><span id="ptot"> / 22</span></span></div>
+<div class="pager" id="pager"><span class="mk" id="pmk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z" fill="#2ad4cd"/></svg></span><span class="no" id="pno"><b id="pnum">1</b><span id="ptot"> / 15</span></span></div>
 <nav class="nav" id="dots" aria-label="投影片導覽"></nav>
 
 <!-- 1 封面 -->
@@ -269,7 +275,7 @@
       <li><span class="n">02</span>電商與交易系統</li>
       <li><span class="n">03</span>產業營運系統</li>
       <li><span class="n">04</span>人資與內部管理</li>
-      <li><span class="n">05</span>AI 應用</li>
+      <li><span class="n">05</span>AI 客製開發</li>
       <li><span class="n">06</span>行動 App</li>
       <li><span class="n">07</span>提案與募資簡報</li>
     </ul>
@@ -279,7 +285,7 @@
 <!-- 4 官網 -->
 <section class="slide" id="s4" data-label="官網與後台">
   <div class="inner">
-    <span class="eyebrow reveal">01　形象官網 ＋ 後台</span>
+    <span class="eyebrow reveal">形象官網 ＋ 後台</span>
     <h2 class="reveal" style="transition-delay:.05s">網站要客戶<br><em>自己改得動</em>。</h2>
     <div class="grid g3 reveal" style="transition-delay:.14s">
       <div class="cell card"><span class="who">台大農經系</span><div class="k">系所官網</div><div class="d">課程、師資、公告自己改。</div></div>
@@ -289,33 +295,10 @@
   </div>
 </section>
 
-<!-- 5 電商 -->
-<section class="slide lilac" id="s5" data-label="電商交易">
+<!-- 5 案例．收稿 -->
+<section class="slide lilac" id="s5" data-label="營運系統．印刷">
   <div class="inner">
-    <span class="eyebrow reveal">02　電商與交易系統</span>
-    <h2 class="reveal" style="transition-delay:.05s">從購物車<br>到點數帳本。</h2>
-    <div class="grid g2 reveal" style="transition-delay:.14s">
-      <div class="cell card"><div class="k">雙價格</div><div class="d">同一件商品可租、可買。</div></div>
-      <div class="cell card"><div class="k">會員等級</div><div class="d">付款後自動升級。</div></div>
-      <div class="cell card"><div class="k">點數飛輪</div><div class="d">回饋、折抵、到期沖銷。</div></div>
-      <div class="cell card"><div class="k">金流發票</div><div class="d">串接金流與電子發票。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 營運系統 -->
-<section class="slide turq" id="s6" data-label="營運系統">
-  <div class="inner narrow">
-    <span class="eyebrow reveal">03　產業營運系統</span>
-    <h2 class="reveal" style="transition-delay:.05s">Excel 與紙本，<br>該退休了。</h2>
-    <p class="lead reveal" style="transition-delay:.14s">這是我們做過最難、也最值錢的一塊。</p>
-  </div>
-</section>
-
-<!-- 7 案例．收稿 -->
-<section class="slide" id="s7" data-label="案例．印刷收稿">
-  <div class="inner">
-    <span class="eyebrow reveal">案例．美強光廣告科技</span>
+    <span class="eyebrow reveal">產業營運系統．美強光廣告科技</span>
     <h2 class="reveal" style="transition-delay:.05s">收稿這件事，<br>系統自己判斷。</h2>
     <div class="steps reveal" style="transition-delay:.14s">
       <div class="bx"><div class="bt">檔名自動驗證</div><div class="bs">規則寫死不用猜</div></div>
@@ -328,10 +311,10 @@
   </div>
 </section>
 
-<!-- 8 案例．零售 -->
-<section class="slide lilac" id="s8" data-label="案例．零售系統">
+<!-- 6 案例．零售 -->
+<section class="slide" id="s6" data-label="營運系統．零售">
   <div class="inner">
-    <span class="eyebrow reveal">案例．小時光書店</span>
+    <span class="eyebrow reveal">產業營運系統．小時光書店</span>
     <h2 class="reveal" style="transition-delay:.05s">一整間店的營運，<br>裝進一套後台。</h2>
     <div class="stats reveal" style="transition-delay:.14s">
       <div><div class="n">20<s>+</s></div><div class="l">後台模組</div></div>
@@ -342,10 +325,10 @@
   </div>
 </section>
 
-<!-- 9 人資 -->
-<section class="slide grape" id="s9" data-label="人資系統">
+<!-- 7 人資 -->
+<section class="slide grape" id="s7" data-label="人資系統">
   <div class="inner">
-    <span class="eyebrow reveal">04　人資與內部管理</span>
+    <span class="eyebrow reveal">人資與內部管理</span>
     <h2 class="reveal" style="transition-delay:.05s">你的系統，<br>掛<em>你的招牌</em>。</h2>
     <div class="grid g2 reveal" style="transition-delay:.14s">
       <div class="cell card"><div class="k">白標</div><div class="d">介面、Logo、網址都是貴公司的樣子，看不到我們的名字。</div></div>
@@ -355,53 +338,10 @@
   </div>
 </section>
 
-<!-- 10 AI 應用 -->
-<section class="slide turq" id="s10" data-label="AI 應用">
+<!-- 8 App -->
+<section class="slide lilac" id="s8" data-label="行動 App">
   <div class="inner">
-    <span class="eyebrow reveal">05　AI 應用</span>
-    <h2 class="reveal" style="transition-delay:.05s">AI 有四種<br>不同的用法。</h2>
-    <div class="grid g2 reveal" style="transition-delay:.14s">
-      <div class="cell card"><div class="k">數位人</div><div class="d">會對話，答案有出處。</div></div>
-      <div class="cell card"><div class="k">現場互動</div><div class="d">展場的語音裝置。</div></div>
-      <div class="cell card"><div class="k">自動報價</div><div class="d">對話長出報價單。</div></div>
-      <div class="cell card"><div class="k">影像處理</div><div class="d">自動去背與合成。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 11 案例．數位人 -->
-<section class="slide lilac" id="s11" data-label="案例．AI 數位人">
-  <div class="inner">
-    <span class="eyebrow reveal">案例．婦女權益促進發展基金會</span>
-    <h2 class="reveal" style="transition-delay:.05s">用真人的臉做 AI，<br>難的不是技術。</h2>
-    <div class="grid g3 reveal" style="transition-delay:.14s">
-      <div class="cell card"><div class="k">檢索先擋</div><div class="d">想套話，AI 不會被呼叫。</div></div>
-      <div class="cell card"><div class="k">輸出再擋</div><div class="d">政治表態、虛構內容攔下。</div></div>
-      <div class="cell card"><div class="k">全程標示</div><div class="d">浮水印、免責、不給收錄。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 12 案例．報價 -->
-<section class="slide" id="s12" data-label="案例．AI 報價">
-  <div class="inner">
-    <span class="eyebrow reveal">案例．AI 自動報價</span>
-    <h2 class="reveal" style="transition-delay:.05s">AI <em>絕不自己定價</em>。</h2>
-    <div class="steps reveal" style="transition-delay:.14s">
-      <div class="bx"><div class="bt">對話</div><div class="bs">聊出需求與意圖</div></div>
-      <div class="ar" aria-hidden="true">→</div>
-      <div class="bx"><div class="bt">人審</div><div class="bs">老闆核准才寄出</div></div>
-      <div class="ar" aria-hidden="true">→</div>
-      <div class="bx"><div class="bt">成單</div><div class="bs">客戶接受就成立</div></div>
-    </div>
-    <p class="fine reveal" style="transition-delay:.24s">AI 只能用費率卡上有的品項與價格</p>
-  </div>
-</section>
-
-<!-- 13 App -->
-<section class="slide lilac" id="s13" data-label="行動 App">
-  <div class="inner">
-    <span class="eyebrow reveal">06　行動 App</span>
+    <span class="eyebrow reveal">行動 App</span>
     <h2 class="reveal" style="transition-delay:.05s">App 我們也<br>從頭做到上架。</h2>
     <div class="stats reveal" style="transition-delay:.14s">
       <div><div class="n">2</div><div class="l">平台上架</div></div>
@@ -412,18 +352,8 @@
   </div>
 </section>
 
-<!-- 14 簡報 -->
-<section class="slide grape" id="s14" data-label="提案簡報">
-  <div class="inner narrow">
-    <span class="eyebrow reveal">07　提案與募資簡報</span>
-    <h2 class="reveal" style="transition-delay:.05s">簡報也是<br>一個網址。</h2>
-    <p class="lead reveal" style="transition-delay:.14s">傳連結，不寄檔案。<br>手機能開，改完就是最新版。</p>
-    <p class="fine reveal" style="transition-delay:.22s">這一年做了六份，你現在看的也是</p>
-  </div>
-</section>
-
-<!-- 15 技術棧 -->
-<section class="slide" id="s15" data-label="技術棧">
+<!-- 9 技術棧 -->
+<section class="slide" id="s9" data-label="技術棧">
   <div class="inner">
     <span class="eyebrow reveal">技術棧</span>
     <h2 class="reveal" style="transition-delay:.05s">主流、長期<br>維護得下去。</h2>
@@ -435,92 +365,79 @@
   </div>
 </section>
 
-<!-- 16 產業 -->
-<section class="slide turq" id="s16" data-label="服務過的產業">
+<!-- 10 四個產品 -->
+<section class="slide turq" id="s10" data-label="四個產品">
   <div class="inner">
-    <span class="eyebrow reveal">服務過的產業</span>
-    <h2 class="reveal" style="transition-delay:.05s">產業不同，<br>要解決的事一樣。</h2>
-    <div class="tags reveal" style="transition-delay:.14s">
-      <span>印刷製造</span><span>設計顧問</span><span>零售書店</span><span>線上藝廊</span>
-      <span>健康課程</span><span>社交 App</span><span>學術系所</span><span>公益基金會</span>
-      <span>宗教團體</span><span>活動會展</span><span>花藝協會</span><span>餐飲集團</span>
+    <span class="eyebrow reveal">我們自己的產品</span>
+    <h2 class="reveal" style="transition-delay:.05s">風林火山。</h2>
+    <p class="lead reveal" style="transition-delay:.12s">其疾如風，其徐如林，<br>侵掠如火，不動如山。</p>
+    <div class="iconrow reveal" style="transition-delay:.2s">
+      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div><div class="irz">疾如風</div><div class="irn">線上客服報價</div></div>
+      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div><div class="irz">徐如林</div><div class="irn">語意標籤 App</div></div>
+      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div><div class="irz">侵掠如火</div><div class="irn">業務助理</div></div>
+      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div><div class="irz">不動如山</div><div class="irn">數字人即時互動</div></div>
     </div>
   </div>
 </section>
 
-<!-- 17 風林火山 開場 -->
-<section class="slide" id="s17" data-label="風林火山">
-  <div class="inner narrow">
-    <span class="eyebrow reveal">我們怎麼看 AI</span>
-    <h1 class="reveal" style="transition-delay:.06s;letter-spacing:.06em">風林火山</h1>
-    <p class="lead reveal" style="transition-delay:.16s">其疾如風，其徐如林，<br>侵掠如火，不動如山。</p>
-    <div class="iconrow reveal" style="transition-delay:.24s" aria-hidden="true">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
-    </div>
-  </div>
-</section>
-
-<!-- 18 風 -->
-<section class="slide" id="s18" data-label="疾如風">
+<!-- 11 疾如風．線上客服報價 -->
+<section class="slide" id="s11" data-label="疾如風．線上客服報價">
   <div class="inner">
     <div class="fs">
       <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
       <div>
-        <div class="zh reveal" style="transition-delay:.08s">疾如風</div>
-        <h2 class="reveal" style="transition-delay:.12s">毫秒之間，<br>答案就到了。</h2>
-        <p class="lead reveal" style="transition-delay:.2s">海量資料的檢索、分析與輸出，一次完成。</p>
+        <div class="zh reveal" style="transition-delay:.08s">疾如風．線上客服報價</div>
+        <h2 class="reveal" style="transition-delay:.12s">客戶問完，<br>報價就到手。</h2>
+        <p class="lead reveal" style="transition-delay:.2s">24 小時接待、當場估價，員工只接手已經談定的需求。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 19 林 -->
-<section class="slide" id="s19" data-label="徐如林">
+<!-- 12 徐如林．語意標籤 App -->
+<section class="slide" id="s12" data-label="徐如林．語意標籤 App">
   <div class="inner">
     <div class="fs">
       <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
       <div>
-        <div class="zh reveal" style="transition-delay:.08s">徐如林</div>
+        <div class="zh reveal" style="transition-delay:.08s">徐如林．語意標籤 App</div>
         <h2 class="reveal" style="transition-delay:.12s">資料再多，<br>依然井然有序。</h2>
-        <p class="lead reveal" style="transition-delay:.2s">向量資料庫把浩瀚整理成條理，隨時等你調用。</p>
+        <p class="lead reveal" style="transition-delay:.2s">用語意標籤把人、事、物歸位，要用的時候一句話就找得到。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 20 火 -->
-<section class="slide" id="s20" data-label="侵掠如火">
+<!-- 13 侵掠如火．業務助理 -->
+<section class="slide" id="s13" data-label="侵掠如火．業務助理">
   <div class="inner">
     <div class="fs">
       <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
       <div>
-        <div class="zh reveal" style="transition-delay:.08s">侵掠如火</div>
-        <h2 class="reveal" style="transition-delay:.12s">一旦動起來，<br>就是燎原之勢。</h2>
-        <p class="lead reveal" style="transition-delay:.2s">文案、圖像、程式，產出快到你追不上。</p>
+        <div class="zh reveal" style="transition-delay:.08s">侵掠如火．業務助理</div>
+        <h2 class="reveal" style="transition-delay:.12s">名單不會冷，<br>跟進不會斷。</h2>
+        <p class="lead reveal" style="transition-delay:.2s">自動整理名單、擬好開發信與追蹤節奏，業務把時間留給成交。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 21 山 -->
-<section class="slide" id="s21" data-label="不動如山">
+<!-- 14 不動如山．數字人即時互動 -->
+<section class="slide" id="s14" data-label="不動如山．數字人即時互動">
   <div class="inner">
     <div class="fs">
       <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
       <div>
-        <div class="zh reveal" style="transition-delay:.08s">不動如山</div>
-        <h2 class="reveal" style="transition-delay:.12s">外面再吵，<br>核心紋風不動。</h2>
-        <p class="lead reveal" style="transition-delay:.2s">不被情緒左右，只依邏輯與權重給答案。</p>
+        <div class="zh reveal" style="transition-delay:.08s">不動如山．數字人即時互動</div>
+        <h2 class="reveal" style="transition-delay:.12s">再刁鑽的問題，<br>也不會亂答。</h2>
+        <p class="lead reveal" style="transition-delay:.2s">即時對話與對嘴影片，護欄擋住越界內容，品牌口徑始終如一。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 22 聯絡 -->
-<section class="slide turq cover" id="s22" data-label="聯絡我們">
+<!-- 15 聯絡 -->
+<section class="slide turq cover" id="s15" data-label="聯絡我們">
   <div class="bolts" aria-hidden="true"><div class="bolt dk" style="left:5vw;right:auto;top:14vh"></div><div class="bolt lt" style="left:7.4vw;right:auto;top:11vh"></div></div>
   <div class="inner narrow">
     <span class="eyebrow reveal">下一步</span>
@@ -529,7 +446,7 @@
       <div class="cbox"><div class="cl">EMAIL</div><div class="cv">lqtech2026@gmail.com</div></div>
       <div class="cbox"><div class="cl">WEB</div><div class="cv">laiquan.co</div></div>
     </div>
-    <p class="fine reveal" style="transition-delay:.26s">萊乾資訊．把好點子通電上線</p>
+    <p class="fine reveal" style="transition-delay:.26s">你現在看的這份簡報，也是我們做的</p>
   </div>
 </section>
 
