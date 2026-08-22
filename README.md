@@ -3,7 +3,7 @@
 萊乾資訊 LaiQuan — **公司介紹簡報**（22 頁全螢幕互動簡報站）。
 
 - **線上（對外用這個）**：<https://pitch.laiquan.co>
-- 備用：<https://laiquan-pitch.vercel.app>
+- 備用：<https://laiquan-pitch.vercel.app>（同一份，未綁網域時的原始網址）
 - 純靜態站（單一 `index.html`），無建置流程。
 - **push 到 `main` → Vercel 自動部署**（Vercel 專案 `laiquan-pitch`，framework=static，原生 GitHub 整合）。
 
@@ -250,16 +250,16 @@ return JSON.stringify({minTextPx:min,orphans:orph,overflow:over.filter(x=>x.over
 四頁內頁的成語行帶產品名（疾如風．線上客服與即時報價）也是同一個道理——
 先講特質，產品名是佐證。
 
-## 比色用的版本
+## 配色定案
 
-| 檔案 | 方向 |
-|---|---|
-| `index.html` | **現行：巴黎紫粉版** |
-| [`compare/deep-gold.html`](compare/deep-gold.html) | 深藍紫主場 ＋ 亮黃回歸 |
-| [`compare/purple-soft.html`](compare/purple-soft.html) | 第一版紫綠（淺底為主）|
-| [`compare/yellow.html`](compare/yellow.html) | 最初的黃黑版 |
+**巴黎紫粉版**已定案（2026-08-23）。比色期間的三個版本（深藍紫＋亮黃、第一版紫綠、
+最初黃黑）已從 repo 移除，需要時從 `329d8c1` 取回：
 
-線上路徑同名。**`compare/` 裡的都是凍結快照，不同步更新**，之後不需要就整個資料夾刪掉。
+```bash
+git show 329d8c1:compare/deep-gold.html > deep-gold.html
+```
+
+（另兩個檔名為 `purple-soft.html`、`yellow.html`。）
 
 ## 自訂網域
 
