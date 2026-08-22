@@ -2,7 +2,8 @@
 
 萊乾資訊 LaiQuan — **公司介紹簡報**（22 頁全螢幕互動簡報站）。
 
-- 線上：<https://laiquan-pitch.vercel.app>
+- **線上（對外用這個）**：<https://pitch.laiquan.co>
+- 備用：<https://laiquan-pitch.vercel.app>
 - 純靜態站（單一 `index.html`），無建置流程。
 - **push 到 `main` → Vercel 自動部署**（Vercel 專案 `laiquan-pitch`，framework=static，原生 GitHub 整合）。
 
@@ -253,14 +254,23 @@ return JSON.stringify({minTextPx:min,orphans:orph,overflow:over.filter(x=>x.over
 
 | 檔案 | 方向 |
 |---|---|
-| `index.html` | **現行**：深藍紫主場 ＋ 亮黃回歸，多色並置 |
-| [`compare/paris-lilac.html`](compare/paris-lilac.html) | 巴黎紫粉版：第一版的淺底柔和感 ＋ 巴黎紫與粉 |
-| [`compare/purple-soft.html`](compare/purple-soft.html) | 第一版紫綠（淺底為主） |
+| `index.html` | **現行：巴黎紫粉版** |
+| [`compare/deep-gold.html`](compare/deep-gold.html) | 深藍紫主場 ＋ 亮黃回歸 |
+| [`compare/purple-soft.html`](compare/purple-soft.html) | 第一版紫綠（淺底為主）|
 | [`compare/yellow.html`](compare/yellow.html) | 最初的黃黑版 |
 
-線上路徑同名。**`compare/` 裡的都是凍結快照，不同步更新**，配色定案後整個資料夾刪掉。
+線上路徑同名。**`compare/` 裡的都是凍結快照，不同步更新**，之後不需要就整個資料夾刪掉。
 
-### 巴黎紫粉版的設計說明
+## 自訂網域
+
+`pitch.laiquan.co` → Cloudflare CNAME 指向 `aea5620a01e77f13.vercel-dns-017.com`，**Proxy 必須是灰色雲朵（DNS only）**。
+主站 `laiquan.co` / `www.laiquan.co` 仍綁在 `lqtech-landing`，兩者互不影響。
+
+⚠️ **憑證不會總是自動簽。** 這次 DNS 生效後等了 3 分鐘仍未簽發，
+用 `POST https://api.vercel.com/v3/certs` 帶 `{"cns":["pitch.laiquan.co"]}` 手動觸發後才拿到。
+症狀是 **http 通、https 握手直接失敗**（`SSL_ERROR_SYSCALL`）。下次遇到同樣情況照這樣處理。
+
+### 現行配色（巴黎紫粉版）的設計說明
 
 拿第一版的**淺底柔和**當底子，換上巴黎奧運的紫與粉：
 

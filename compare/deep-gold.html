@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>萊乾資訊 LaiQuan｜公司介紹（巴黎紫粉版）</title>
+<title>萊乾資訊 LaiQuan｜公司介紹</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231b0a3f'/%3E%3Cpath d='M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z' fill='%23ffce00'/%3E%3C/svg%3E">
 <meta name="description" content="萊乾資訊 LaiQuan — 把好點子通電上線 形象官網、電商交易、產業營運系統、人資系統、AI 應用、行動 App。這一年 24 個專案，橫跨 12 個產業。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,53 +21,55 @@
      對比稀釋掉，淺色頁一律用淡紫。白色只出現在卡片填色。
      ═══════════════════════════════════════════════════════════ */
   :root{
-    /* 第一版紫綠（淺底、柔和）＋ 巴黎奧運的跑道紫與粉。
-       前九頁全是淺／中調，風林火山才落到深紫——輕盈在前，重擊在後。 */
-    --violet-deep:#2e1a5e;   /* 深紫 — 文字與深底 */
-    --paris:#7461ad;         /* 巴黎紫 — 招牌中調底。⚠️ 不要調亮：#8b7bc4 之類的跑道亮紫
-                                在上面放淺色眉標只有 2.4:1，不合格 */
-    --paris-dk:#6b5a9e;      /* 深一階，用於淺底頁的眉標 */
-    --pink:#f4879e;          /* 巴黎粉 — 整頁底與主要點綴 */
-    --pink-lt:#ffc2d1;       /* 淺粉 — 深底頁的眉標與 icon */
-    --turq:#3fc7c2;          /* 綠松石 — 沿用第一版，冷色制衡 */
-    --lilac:#e5daf6;         /* 淡紫底 */
-    --wash:#f4effb;          /* 最淺的紫白底 */
-    --gold:#ffce00;          /* 萊乾閃電 — 只出現在封面 */
-    --card-deep:#3b2472;
+    /* 主色 —— 穩定畫面 */
+    --violet-deep:#1b0a3f;   /* 深藍紫 */
+    --grape:#4a1b85;         /* 葡萄紫 */
+    /* 副色 —— 豐富層次 */
+    --peacock:#0a5f70;       /* 孔雀藍 */
+    --teal:#10a5a0;          /* 藍綠 */
+    --turq:#2ad4cd;          /* 綠松石 */
+    /* 點綴色 */
+    --pink:#ff9ec0;          /* 淺粉 */
+    --gold:#ffce00;          /* 亮黃 —— 萊乾原本的品牌色，這版把它放回來當主要點綴 */
+    --lilac:#e8dcf5;         /* 淡紫 */
+
+    --card-deep:#2d1160;     /* 深底頁的卡片填色 */
+    --card-grape:#37116d;
     --ink:var(--violet-deep);
-    --on-deep:#c9bce6; --on-deep-2:#a495cc;
-    --on-paris:#efe9fa; --on-paris-2:#ddd4f2;
-    --on-pink:#6e2338;
-    --on-turq:#0a4a52;
-    --on-lilac:#5b4a80; --on-lilac-2:#7a6c98;
+    --on-deep:#c3aeea;       /* 深底頁的次要文字 */
+    --on-deep-2:#9d88c8;
+    --on-turq:#0a4a52;       /* 綠松石底的次要文字 */
+    --on-lilac:#5b4a80;      /* 淡紫底的次要文字 */
+    --on-lilac-2:#6f5d96;
+
     --sans:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Segoe UI",sans-serif;
     --display:"Baloo 2","Noto Sans TC",-apple-system,"PingFang TC",sans-serif;
     --ease:cubic-bezier(.16,1,.3,1);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-  body{font-family:var(--sans);color:var(--ink);background:var(--wash);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--sans);color:#fff;background:var(--violet-deep);line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
   a{color:inherit;text-decoration:none;}
 
   .progress{position:fixed;inset:0 0 auto 0;height:5px;z-index:80;pointer-events:none;}
-  .progress i{display:block;height:100%;width:0;background:var(--paris-dk);transition:width .5s var(--ease),background .4s;}
+  .progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s var(--ease),background .4s;}
 
   .pager{position:fixed;left:clamp(20px,3vw,44px);bottom:clamp(18px,2.4vw,32px);z-index:70;
     display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;}
-  .pager .mk{height:34px;width:34px;border-radius:10px;background:var(--violet-deep);display:flex;align-items:center;justify-content:center;flex:none;transition:background .4s;}
+  .pager .mk{height:34px;width:34px;border-radius:10px;background:var(--grape);display:flex;align-items:center;justify-content:center;flex:none;transition:background .4s;}
   .pager .mk svg{width:21px;height:21px;display:block;}
-  .pager .no{font-size:20px;font-variant-numeric:tabular-nums;transition:color .4s;color:var(--violet-deep);}
+  .pager .no{font-size:20px;font-variant-numeric:tabular-nums;transition:color .4s;color:#fff;}
   .pager .no b{font-size:25px;}
   @media(max-width:640px){.pager{display:none;}}
 
   /* 導覽圓點會浮在深淺兩種底上，靠 body[data-ground] 換色 */
   .nav{position:fixed;top:50%;right:max(14px,2vw);transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:11px;align-items:flex-end;}
   .nav button{position:relative;display:flex;align-items:center;cursor:pointer;background:none;border:0;padding:3px 0 3px 8px;}
-  .nav button::after{content:"";width:9px;height:9px;border-radius:999px;border:2px solid rgba(46,26,94,.35);background:transparent;
+  .nav button::after{content:"";width:9px;height:9px;border-radius:999px;border:2px solid rgba(255,255,255,.42);background:transparent;
     transition:transform .35s var(--ease),background .35s,border-color .35s;}
-  .nav button[data-active="true"]::after{background:var(--violet-deep);border-color:var(--violet-deep);transform:scale(1.55);}
-  body[data-ground="dark"] .nav button::after{border-color:rgba(255,255,255,.45);}
-  body[data-ground="dark"] .nav button[data-active="true"]::after{background:var(--pink-lt);border-color:var(--pink-lt);}
+  .nav button[data-active="true"]::after{background:var(--turq);border-color:var(--turq);transform:scale(1.55);}
+  body[data-ground="light"] .nav button::after{border-color:rgba(27,10,63,.35);}
+  body[data-ground="light"] .nav button[data-active="true"]::after{background:var(--violet-deep);border-color:var(--violet-deep);}
   .nav .lbl{margin-right:11px;font-size:14px;font-weight:700;color:var(--violet-deep);background:#fff;
     border:2px solid var(--violet-deep);border-radius:999px;padding:4px 13px;white-space:nowrap;
     opacity:0;transform:translateX(6px);transition:opacity .25s,transform .25s;pointer-events:none;}
@@ -77,53 +79,52 @@
   /* ── slides：四種底，沒有白底 ── */
   .slide{min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;
     justify-content:center;align-items:center;text-align:center;padding:clamp(56px,7vh,92px) clamp(28px,6vw,84px);position:relative;
-    background:var(--wash);color:var(--ink);}
-  .slide.white{background:#fff;}
-  .slide.lilac{background:var(--lilac);}
-  .slide.paris{background:var(--paris);color:#fff;}
-  .slide.pink{background:var(--pink);}
-  .slide.turq{background:var(--turq);}
-  .slide.deep{background:var(--violet-deep);color:#fff;}
+    background:var(--violet-deep);color:#fff;}
+  .slide.grape{background:var(--grape);}
+  .slide.turq{background:var(--turq);color:var(--violet-deep);}
+  .slide.gold{background:var(--gold);color:var(--violet-deep);}
   .slide.lilac{background:var(--lilac);color:var(--violet-deep);}
   .slide.cover{overflow:hidden;}
   .inner{width:100%;max-width:1180px;position:relative;z-index:2;}
   .narrow{max-width:920px;}
 
   /* 眉標：純文字＋字距，不用色塊 */
-  .eyebrow{display:block;font-size:clamp(30px,1.7vw,33px);font-weight:800;color:var(--paris-dk);
+  .eyebrow{display:block;font-size:clamp(30px,1.7vw,33px);font-weight:800;color:var(--gold);
     letter-spacing:.16em;margin-bottom:clamp(16px,2.2vh,28px);}
-  .paris .eyebrow{color:var(--pink-lt);}
-  .deep .eyebrow{color:var(--pink-lt);}
-  .pink .eyebrow{color:var(--on-pink);}
+  .grape .eyebrow{color:var(--pink);}
   .turq .eyebrow{color:var(--on-turq);}
+  .gold .eyebrow{color:#6b4c00;}
+  .lilac .eyebrow{color:var(--peacock);}
 
   h1{font-family:var(--display);font-size:clamp(54px,9.2vw,128px);font-weight:800;letter-spacing:-.015em;line-height:1.04;text-wrap:balance;}
   h2{font-family:var(--display);font-size:clamp(44px,6.4vw,92px);font-weight:800;letter-spacing:-.01em;line-height:1.1;text-wrap:balance;}
-  .lead{font-size:clamp(30px,2.3vw,38px);font-weight:500;color:var(--on-lilac);line-height:1.5;max-width:960px;margin:clamp(16px,2.2vh,30px) auto 0;text-wrap:balance;}
-  .paris .lead{color:var(--on-paris);}
-  .deep .lead{color:var(--on-deep);}
-  .pink .lead{color:var(--on-pink);}
+  .lead{font-size:clamp(30px,2.3vw,38px);font-weight:500;color:var(--on-deep);line-height:1.5;max-width:960px;margin:clamp(16px,2.2vh,30px) auto 0;text-wrap:balance;}
+  .grape .lead{color:#d6c4f2;}
   .turq .lead{color:var(--on-turq);}
-  .fine{font-size:clamp(30px,1.6vw,33px);color:var(--on-lilac-2);margin-top:clamp(14px,1.8vh,24px);font-weight:600;text-wrap:balance;}
-  .paris .fine{color:var(--on-paris-2);}
-  .deep .fine{color:var(--on-deep-2);}
-  .pink .fine{color:var(--on-pink);}
+  .gold .lead{color:#6b4c00;}
+  .lilac .lead{color:var(--on-lilac);}
+  .fine{font-size:clamp(30px,1.6vw,33px);color:var(--on-deep-2);margin-top:clamp(14px,1.8vh,24px);font-weight:600;text-wrap:balance;}
+  .grape .fine{color:#bda9e0;}
   .turq .fine{color:var(--on-turq);}
+  .gold .fine{color:#6b4c00;}
+  .lilac .fine{color:var(--on-lilac-2);}
 
   /* 強調：只換顏色。不畫底線、不填色塊。
      ⚠️ 底線在 92px 的 CJK 標題上會落在行框最底部、離字形很遠，看起來像一條
      沒來由的橫線——試過了，不要再加回來。 */
-  em{font-style:normal;color:var(--paris-dk);}
-  .paris em{color:var(--pink-lt);}
-  .deep em{color:var(--turq);}
-  .pink em{color:var(--violet-deep);}
+  em{font-style:normal;color:var(--pink);}
+  .grape em{color:var(--turq);}
   .turq em{color:var(--violet-deep);}
+  .gold em{color:var(--grape);}
+  .lilac em{color:var(--peacock);}
 
   /* 封面閃電：綠松石 ＋ 淺粉疊層，深藍紫底上最搶眼的一組 */
   .bolts{position:absolute;inset:0;z-index:1;pointer-events:none;}
   .bolt{position:absolute;clip-path:polygon(58% 0,18% 52%,46% 52%,30% 100%,82% 40%,52% 40%);}
   .bolt.dk{right:5vw;top:12vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--gold);opacity:.95;}
-  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--pink-lt);opacity:.62;}
+  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--turq);opacity:.55;}
+  .turq .bolt.dk{background:var(--violet-deep);opacity:.9;}
+  .turq .bolt.lt{background:var(--grape);opacity:.45;}
   @media(max-width:900px){.bolts{opacity:.4;}.bolt.dk{right:-6vw;}.bolt.lt{right:-3.5vw;}}
 
   /* ── 大數字 ── */
@@ -131,11 +132,10 @@
   @media(max-width:760px){.stats{grid-template-columns:1fr;gap:28px;}}
   .stats .n{font-family:var(--display);font-size:clamp(76px,12vw,172px);font-weight:800;line-height:.92;letter-spacing:-.03em;}
   .stats .n s{text-decoration:none;font-size:.44em;}
-  .stats .l{font-size:clamp(30px,1.8vw,34px);color:var(--on-lilac);margin-top:12px;font-weight:700;}
-  .paris .stats .l{color:var(--on-paris);}
-  .deep .stats .l{color:var(--on-deep);}
-  .pink .stats .l{color:var(--on-pink);}
+  .stats .l{font-size:clamp(30px,1.8vw,34px);color:var(--on-deep);margin-top:12px;font-weight:700;}
   .turq .stats .l{color:var(--on-turq);}
+  .gold .stats .l{color:#6b4c00;}
+  .lilac .stats .l{color:var(--on-lilac);}
 
   /* ── 大字清單 ── */
   .biglist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vh,20px) clamp(24px,4vw,64px);
@@ -143,10 +143,11 @@
   @media(max-width:820px){.biglist{grid-template-columns:1fr;}}
   .biglist li{display:flex;align-items:center;gap:18px;font-family:var(--display);font-weight:700;
     font-size:clamp(32px,2.9vw,44px);line-height:1.2;}
-  .biglist .n{flex:none;font-size:clamp(17px,1.4vw,21px);font-weight:800;color:var(--paris-dk);
+  .biglist .n{flex:none;font-size:clamp(17px,1.4vw,21px);font-weight:800;color:var(--turq);
     border:2.5px solid currentColor;border-radius:999px;
     width:clamp(40px,3.6vw,50px);height:clamp(40px,3.6vw,50px);display:flex;align-items:center;justify-content:center;}
-    .deep .biglist .n{color:var(--pink-lt);}
+  .lilac .biglist .n{color:var(--peacock);}
+  .turq .biglist .n{color:var(--violet-deep);}
 
   /* ── 卡片格線 ── */
   .grid{display:grid;gap:clamp(16px,2.2vw,30px);margin-top:clamp(22px,3.4vh,48px);text-align:left;}
@@ -156,55 +157,62 @@
   @media(max-width:980px){.g3,.g4{grid-template-columns:1fr 1fr;}}
   @media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr;}}
   .cell .k{font-family:var(--display);font-size:clamp(34px,2.7vw,44px);font-weight:800;line-height:1.2;margin-bottom:10px;text-wrap:balance;}
-  .cell .d{font-size:clamp(30px,1.75vw,34px);color:var(--on-lilac);line-height:1.5;font-weight:500;text-wrap:balance;}
-  .deep .cell .d{color:var(--on-deep);}
+  .cell .d{font-size:clamp(30px,1.75vw,34px);color:var(--on-deep);line-height:1.5;font-weight:500;text-wrap:balance;}
+  .lilac .cell .d,.turq .cell .d{color:var(--on-lilac);}
   /* 客戶名：純文字，不用色塊 */
-  .cell .who{display:block;font-size:clamp(30px,1.6vw,32px);font-weight:800;color:var(--paris-dk);letter-spacing:.1em;margin-bottom:11px;}
-  .deep .cell .who{color:var(--pink-lt);}
+  .cell .who{display:block;font-size:clamp(30px,1.6vw,32px);font-weight:800;color:var(--turq);letter-spacing:.1em;margin-bottom:11px;}
+  .lilac .cell .who{color:var(--peacock);}
+  .turq .cell .who{color:var(--on-turq);}
 
   /* 卡片：深底頁 = 葡萄紫填色 ＋ 綠松石外框；淺底頁 = 白填色 ＋ 深藍紫外框 ＋ 綠松石實心投影 */
-  /* 卡片：淺底＝白底＋深紫外框＋輪替實心投影；深底＝深紫填色＋輪替外框。
-     巴黎式活潑靠同一頁多色並置，不要整排同一個顏色。 */
-  .card{background:#fff;border:3px solid var(--violet-deep);border-radius:22px;padding:clamp(20px,2.3vw,32px);
-    box-shadow:7px 8px 0 var(--pink);}
-  .grid .cell:nth-child(3n+1){box-shadow:7px 8px 0 var(--pink);}
-  .grid .cell:nth-child(3n+2){box-shadow:7px 8px 0 var(--turq);}
-  .grid .cell:nth-child(3n+3){box-shadow:7px 8px 0 var(--paris);}
-  .pink .grid .cell,.turq .grid .cell{box-shadow:7px 8px 0 var(--violet-deep);}
-  .deep .card{background:var(--card-deep);box-shadow:7px 8px 0 rgba(0,0,0,.38);}
-  .deep .grid .cell:nth-child(3n+1){border-color:var(--pink-lt);}
-  .deep .grid .cell:nth-child(3n+2){border-color:var(--turq);}
-  .deep .grid .cell:nth-child(3n+3){border-color:var(--lilac);}
+  .card{background:var(--card-deep);border:3px solid var(--turq);border-radius:22px;padding:clamp(20px,2.3vw,32px);
+    box-shadow:7px 8px 0 rgba(0,0,0,.42);}
+  .grape .card{background:var(--card-grape);}
+  .lilac .card{background:#fff;border-color:var(--violet-deep);box-shadow:7px 8px 0 var(--turq);}
+  /* 巴黎式多色：同一頁的卡片投影輪替三色，不要整排同一色 */
+  .lilac .grid .cell:nth-child(3n+1){box-shadow:7px 8px 0 var(--gold);}
+  .lilac .grid .cell:nth-child(3n+2){box-shadow:7px 8px 0 var(--turq);}
+  .lilac .grid .cell:nth-child(3n+3){box-shadow:7px 8px 0 var(--pink);}
+  .grid .cell:nth-child(3n+1){border-color:var(--gold);}
+  .grid .cell:nth-child(3n+2){border-color:var(--turq);}
+  .grid .cell:nth-child(3n+3){border-color:var(--pink);}
+  .lilac .grid .cell,.turq .grid .cell,.gold .grid .cell{border-color:var(--violet-deep);}
+  /* steps 的格線是 bx,箭頭,bx,箭頭,bx —— 要用 nth-child(1/3/5)，
+     用 nth-of-type 會把箭頭也算進去，顏色順序會跑掉。 */
+  .lilac .steps .bx:nth-child(1){box-shadow:6px 7px 0 var(--gold);}
+  .lilac .steps .bx:nth-child(3){box-shadow:6px 7px 0 var(--turq);}
+  .lilac .steps .bx:nth-child(5){box-shadow:6px 7px 0 var(--pink);}
+  .steps .bx:nth-child(1){border-color:var(--gold);}
+  .steps .bx:nth-child(3){border-color:var(--turq);}
+  .steps .bx:nth-child(5){border-color:var(--pink);}
+  .lilac .steps .bx,.turq .steps .bx,.gold .steps .bx{border-color:var(--violet-deep);}
+  .tags span:nth-child(4n+1){border-color:var(--gold);}
+  .tags span:nth-child(4n+2){border-color:var(--turq);}
+  .tags span:nth-child(4n+3){border-color:var(--pink);}
+  .tags span:nth-child(4n+4){border-color:var(--lilac);}
+  .lilac .tags span:nth-child(4n+1),.turq .tags span:nth-child(4n+1){box-shadow:3px 4px 0 var(--gold);}
+  .lilac .tags span:nth-child(4n+3),.turq .tags span:nth-child(4n+3){box-shadow:3px 4px 0 var(--pink);}
+  .turq .card{background:#fff;border-color:var(--violet-deep);box-shadow:7px 8px 0 var(--violet-deep);}
 
   /* ── 三步驟 ── */
   .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:clamp(10px,1.5vw,22px);align-items:stretch;margin-top:clamp(24px,3.6vh,50px);}
   @media(max-width:900px){.steps{grid-template-columns:1fr;gap:12px;}.steps .ar{transform:rotate(90deg);padding:2px 0;}}
-  .steps .bx{background:#fff;border:3px solid var(--violet-deep);border-radius:22px;padding:clamp(20px,2.3vw,32px);text-align:center;
-    box-shadow:6px 7px 0 var(--pink);display:flex;flex-direction:column;justify-content:center;}
-  /* steps 的格線是 bx,箭頭,bx,箭頭,bx —— 一定要用 nth-child(1/3/5)。 */
-  .steps .bx:nth-child(1){box-shadow:6px 7px 0 var(--pink);}
-  .steps .bx:nth-child(3){box-shadow:6px 7px 0 var(--turq);}
-  .steps .bx:nth-child(5){box-shadow:6px 7px 0 var(--paris);}
-  .deep .steps .bx{background:var(--card-deep);box-shadow:6px 7px 0 rgba(0,0,0,.38);}
+  .steps .bx{background:var(--card-deep);border:3px solid var(--turq);border-radius:22px;padding:clamp(20px,2.3vw,32px);text-align:center;
+    box-shadow:6px 7px 0 rgba(0,0,0,.42);display:flex;flex-direction:column;justify-content:center;}
+  .lilac .steps .bx{background:#fff;border-color:var(--violet-deep);box-shadow:6px 7px 0 var(--turq);}
+  .turq .steps .bx{background:#fff;border-color:var(--violet-deep);box-shadow:6px 7px 0 var(--violet-deep);}
   .steps .bt{font-family:var(--display);font-size:clamp(34px,2.8vw,44px);font-weight:800;line-height:1.18;}
-  .steps .bs{font-size:clamp(30px,1.75vw,34px);color:var(--on-lilac);margin-top:9px;line-height:1.45;font-weight:500;text-wrap:balance;}
-  .deep .steps .bs{color:var(--on-deep);}
-  .steps .ar{display:flex;align-items:center;justify-content:center;font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--paris-dk);}
-  .deep .steps .ar{color:var(--turq);}
+  .steps .bs{font-size:clamp(30px,1.75vw,34px);color:var(--on-deep);margin-top:9px;line-height:1.45;font-weight:500;text-wrap:balance;}
+  .lilac .steps .bs,.turq .steps .bs{color:var(--on-lilac);}
+  .steps .ar{display:flex;align-items:center;justify-content:center;font-size:clamp(26px,3vw,42px);font-weight:800;color:var(--turq);}
+  .lilac .steps .ar,.turq .steps .ar{color:var(--violet-deep);}
 
   /* ── 標籤 ── */
   .tags{display:flex;flex-wrap:wrap;gap:clamp(9px,1.1vw,15px);justify-content:center;margin-top:clamp(22px,3.4vh,44px);}
-  .tags span{font-family:var(--display);font-weight:700;font-size:clamp(30px,1.9vw,34px);color:var(--violet-deep);
-    background:#fff;border:2.5px solid var(--violet-deep);border-radius:999px;padding:9px 24px;box-shadow:3px 4px 0 var(--pink);}
-  .tags span:nth-child(4n+1){box-shadow:3px 4px 0 var(--pink);}
-  .tags span:nth-child(4n+2){box-shadow:3px 4px 0 var(--turq);}
-  .tags span:nth-child(4n+3){box-shadow:3px 4px 0 var(--paris);}
-  .tags span:nth-child(4n+4){box-shadow:3px 4px 0 var(--lilac);}
-  .deep .tags span{background:var(--card-deep);color:#efe7fb;box-shadow:3px 4px 0 rgba(0,0,0,.38);}
-  .deep .tags span:nth-child(4n+1){border-color:var(--pink-lt);}
-  .deep .tags span:nth-child(4n+2){border-color:var(--turq);}
-  .deep .tags span:nth-child(4n+3){border-color:var(--lilac);}
-  .deep .tags span:nth-child(4n+4){border-color:var(--paris);}
+  .tags span{font-family:var(--display);font-weight:700;font-size:clamp(30px,1.9vw,34px);color:#efe7fb;
+    background:var(--card-deep);border:2.5px solid var(--turq);border-radius:999px;padding:9px 24px;box-shadow:3px 4px 0 rgba(0,0,0,.42);}
+  .lilac .tags span{background:#fff;border-color:var(--violet-deep);color:var(--violet-deep);box-shadow:3px 4px 0 var(--turq);}
+  .turq .tags span{background:#fff;border-color:var(--violet-deep);color:var(--violet-deep);box-shadow:3px 4px 0 var(--violet-deep);}
 
   /* ── 風林火山 ── */
   .fs{display:grid;grid-template-columns:auto 1fr;gap:clamp(36px,6vw,96px);align-items:center;text-align:left;margin-top:clamp(10px,1.6vh,22px);}
@@ -214,28 +222,30 @@
   .icon{width:clamp(140px,17vw,260px);height:clamp(140px,17vw,260px);color:var(--turq);flex:none;}
   /* 四個 icon 各給一色：形狀負責語意，顏色負責區分與活潑。線條規格仍然一致。 */
   .icon.c-wind{color:var(--turq);} .icon.c-forest{color:var(--lilac);}
-  .icon.c-fire{color:var(--gold);} .icon.c-mountain{color:var(--pink-lt);}
+  .icon.c-fire{color:var(--gold);} .icon.c-mountain{color:var(--pink);}
   .icon svg{width:100%;height:100%;display:block;}
   .iconrow{display:flex;justify-content:center;align-items:flex-start;gap:clamp(16px,3.2vw,52px);margin-top:clamp(18px,2.6vh,34px);}
   .iconrow .ir{display:flex;flex-direction:column;align-items:center;gap:9px;}
   .iconrow .icon{width:clamp(56px,6.4vw,92px);height:clamp(56px,6.4vw,92px);}
-  .iconrow .irz{font-family:var(--display);font-size:clamp(30px,1.6vw,32px);font-weight:800;letter-spacing:.1em;color:var(--pink-lt);}
+  .iconrow .irz{font-family:var(--display);font-size:clamp(30px,1.6vw,32px);font-weight:800;letter-spacing:.1em;color:var(--pink);}
   .iconrow .irn{font-family:var(--display);font-size:clamp(30px,1.8vw,34px);font-weight:800;color:#fff;text-wrap:balance;}
 
-  .fs .zh{font-family:var(--display);font-size:clamp(30px,2.4vw,40px);font-weight:800;color:var(--pink-lt);letter-spacing:.14em;margin-bottom:14px;}
+  .turq .iconrow .irz{color:var(--on-turq);}
+  .turq .iconrow .irn{color:var(--violet-deep);}
+  .fs .zh{font-family:var(--display);font-size:clamp(30px,2.4vw,40px);font-weight:800;color:var(--pink);letter-spacing:.14em;margin-bottom:14px;}
   .fs h2{line-height:1.14;}
   .fs .lead{margin-left:0;margin-right:0;max-width:none;}
 
   /* ── 聯絡 ── */
   .contact{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:clamp(20px,3.2vh,38px);}
   .cbox{background:#fff;border:3px solid var(--violet-deep);border-radius:18px;padding:16px 30px;text-align:left;
-    box-shadow:5px 6px 0 var(--pink);color:var(--violet-deep);}
+    box-shadow:5px 6px 0 var(--violet-deep);color:var(--violet-deep);}
   .cbox .cl{font-size:20px;font-weight:800;color:var(--on-lilac-2);letter-spacing:.14em;margin-bottom:4px;}
   .cbox .cv{font-family:var(--display);font-size:clamp(22px,2.1vw,29px);font-weight:800;}
 
   .scrollhint{position:absolute;bottom:clamp(18px,2.4vw,32px);left:0;right:0;margin:0 auto;width:max-content;
-    color:var(--on-paris-2);font-size:15px;letter-spacing:.18em;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;}
-  .scrollhint .chev{width:18px;height:18px;border-right:3px solid var(--on-paris-2);border-bottom:3px solid var(--on-paris-2);transform:rotate(45deg);animation:bob 1.8s var(--ease) infinite;}
+    color:var(--turq);font-size:15px;letter-spacing:.18em;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;}
+  .scrollhint .chev{width:18px;height:18px;border-right:3px solid var(--turq);border-bottom:3px solid var(--turq);transform:rotate(45deg);animation:bob 1.8s var(--ease) infinite;}
   @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.85}50%{transform:rotate(45deg) translate(4px,4px);opacity:.3}}
 
   .reveal{opacity:0;transform:translateY(30px);transition:opacity .85s var(--ease),transform .85s var(--ease);}
@@ -265,7 +275,7 @@
 <nav class="nav" id="dots" aria-label="投影片導覽"></nav>
 
 <!-- 1 封面 -->
-<section class="slide paris cover" id="s1" data-label="封面">
+<section class="slide cover" id="s1" data-label="封面">
   <div class="bolts" aria-hidden="true"><div class="bolt dk"></div><div class="bolt lt"></div></div>
   <div class="inner">
     <span class="eyebrow reveal">萊乾資訊　LAIQUAN　2026</span>
@@ -276,7 +286,7 @@
 </section>
 
 <!-- 2 這一年 -->
-<section class="slide pink" id="s2" data-label="這一年">
+<section class="slide gold" id="s2" data-label="這一年">
   <div class="inner">
     <span class="eyebrow reveal">這一年</span>
     <h2 class="reveal" style="transition-delay:.05s">我們做了這些。</h2>
@@ -289,7 +299,7 @@
 </section>
 
 <!-- 3 七種服務 -->
-<section class="slide" id="s3" data-label="七種服務">
+<section class="slide lilac" id="s3" data-label="七種服務">
   <div class="inner">
     <span class="eyebrow reveal">服務範圍</span>
     <h2 class="reveal" style="transition-delay:.05s">七種服務。</h2>
@@ -306,7 +316,7 @@
 </section>
 
 <!-- 4 官網 -->
-<section class="slide white" id="s4" data-label="官網與後台">
+<section class="slide" id="s4" data-label="官網與後台">
   <div class="inner">
     <span class="eyebrow reveal">形象官網 ＋ 後台</span>
     <h2 class="reveal" style="transition-delay:.05s">網站要客戶<br><em>自己改得動</em>。</h2>
@@ -335,7 +345,7 @@
 </section>
 
 <!-- 6 案例．零售 -->
-<section class="slide paris" id="s6" data-label="營運系統．零售">
+<section class="slide" id="s6" data-label="營運系統．零售">
   <div class="inner">
     <span class="eyebrow reveal">產業營運系統．小時光書店</span>
     <h2 class="reveal" style="transition-delay:.05s">一整間店的營運，<br>裝進一套後台。</h2>
@@ -349,7 +359,7 @@
 </section>
 
 <!-- 7 人資 -->
-<section class="slide turq" id="s7" data-label="人資系統">
+<section class="slide grape" id="s7" data-label="人資系統">
   <div class="inner">
     <span class="eyebrow reveal">人資與內部管理</span>
     <h2 class="reveal" style="transition-delay:.05s">你的系統，<br>掛<em>你的招牌</em>。</h2>
@@ -362,7 +372,7 @@
 </section>
 
 <!-- 8 App -->
-<section class="slide white" id="s8" data-label="行動 App">
+<section class="slide lilac" id="s8" data-label="行動 App">
   <div class="inner">
     <span class="eyebrow reveal">行動 App</span>
     <h2 class="reveal" style="transition-delay:.05s">App 我們也<br>從頭做到上架。</h2>
@@ -376,7 +386,7 @@
 </section>
 
 <!-- 9 技術棧 -->
-<section class="slide pink" id="s9" data-label="技術棧">
+<section class="slide" id="s9" data-label="技術棧">
   <div class="inner">
     <span class="eyebrow reveal">技術棧</span>
     <h2 class="reveal" style="transition-delay:.05s">主流、長期<br>維護得下去。</h2>
@@ -389,7 +399,7 @@
 </section>
 
 <!-- 10 四個產品 -->
-<section class="slide deep" id="s10" data-label="四個產品">
+<section class="slide turq" id="s10" data-label="我們怎麼看 AI">
   <div class="inner">
     <span class="eyebrow reveal">我們怎麼看 AI</span>
     <h2 class="reveal" style="transition-delay:.05s">AI 有四種面貌。</h2>
@@ -405,7 +415,7 @@
 </section>
 
 <!-- 11 疾如風．線上客服報價 -->
-<section class="slide deep" id="s11" data-label="疾如風．線上客服與即時報價">
+<section class="slide" id="s11" data-label="疾如風．線上客服與即時報價">
   <div class="inner">
     <div class="fs">
       <div class="icon c-wind reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
@@ -420,7 +430,7 @@
 </section>
 
 <!-- 12 徐如林．語意標籤 App -->
-<section class="slide deep" id="s12" data-label="徐如林．語意標籤">
+<section class="slide" id="s12" data-label="徐如林．語意標籤">
   <div class="inner">
     <div class="fs">
       <div class="icon c-forest reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
@@ -435,7 +445,7 @@
 </section>
 
 <!-- 13 侵掠如火．業務助理 -->
-<section class="slide deep" id="s13" data-label="侵掠如火．數字人即時互動">
+<section class="slide" id="s13" data-label="侵掠如火．數字人即時互動">
   <div class="inner">
     <div class="fs">
       <div class="icon c-fire reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
@@ -450,7 +460,7 @@
 </section>
 
 <!-- 14 不動如山．數字人即時互動 -->
-<section class="slide deep" id="s14" data-label="不動如山．業務助理">
+<section class="slide" id="s14" data-label="不動如山．業務助理">
   <div class="inner">
     <div class="fs">
       <div class="icon c-mountain reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
@@ -465,7 +475,7 @@
 </section>
 
 <!-- 15 聯絡 -->
-<section class="slide paris cover" id="s15" data-label="聯絡我們">
+<section class="slide turq cover" id="s15" data-label="聯絡我們">
   <div class="bolts" aria-hidden="true"><div class="bolt dk" style="left:5vw;right:auto;top:14vh"></div><div class="bolt lt" style="left:7.4vw;right:auto;top:11vh"></div></div>
   <div class="inner narrow">
     <span class="eyebrow reveal">下一步</span>
@@ -507,11 +517,11 @@
     pnum.textContent=(i+1);
     // 深色頁把頁碼與進度條轉亮，否則看不見
     // 淡紫與綠松石是淺底，頁碼／圓點要轉深；其餘深底維持亮色
-    var darkGround=slides[i].classList.contains('deep')||slides[i].classList.contains('paris');
-    document.body.dataset.ground = darkGround ? 'dark' : 'light';
-    pno.style.color = darkGround ? '#fff' : '#2e1a5e';
-    pmk.style.background = darkGround ? '#ffc2d1' : '#2e1a5e';
-    pfill.style.background = darkGround ? '#ffc2d1' : '#6b5a9e';
+    var lightGround=slides[i].classList.contains('lilac')||slides[i].classList.contains('turq')||slides[i].classList.contains('gold');
+    document.body.dataset.ground = lightGround ? 'light' : 'dark';
+    pno.style.color = lightGround ? '#1b0a3f' : '#fff';
+    pmk.style.background = lightGround ? '#1b0a3f' : '#4a1b85';
+    pfill.style.background = lightGround ? '#1b0a3f' : '#ffce00';
   }
   dots[0].setAttribute('data-active','true');
   document.body.dataset.ground='dark';
