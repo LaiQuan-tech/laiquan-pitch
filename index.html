@@ -122,10 +122,21 @@
 
   /* 封面閃電：綠松石 ＋ 淺粉疊層，深藍紫底上最搶眼的一組 */
   .bolts{position:absolute;inset:0;z-index:1;pointer-events:none;}
-  .bolt{position:absolute;clip-path:polygon(58% 0,18% 52%,46% 52%,30% 100%,82% 40%,52% 40%);}
-  .bolt.dk{right:5vw;top:12vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--gold);opacity:.95;}
-  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--pink-lt);opacity:.62;}
-  @media(max-width:900px){.bolts{opacity:.4;}.bolt.dk{right:-6vw;}.bolt.lt{right:-3.5vw;}}
+  /* ⚠️ 閃電的形狀來自 clip-path 的百分比，**寬高比一變形狀就歪**。
+     所以高度一律由 aspect-ratio 從寬度算出來，不要再寫死 height。
+     原本 height:min(520px,50vh) 在矮螢幕與手機都會走鐘：
+     1280×800 變 0.864、375×812 變 0.249（正確值 0.692，被拉成細長條）。 */
+  .bolt{position:absolute;clip-path:polygon(58% 0,18% 52%,46% 52%,30% 100%,82% 40%,52% 40%);
+    height:auto;aspect-ratio:360/520;}
+  .bolt.dk{right:5vw;top:12vh;width:min(360px,27vw);background:var(--gold);opacity:.95;}
+  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);background:var(--pink-lt);opacity:.62;}
+  /* 窄螢幕：只縮寬度並往外挪，高度由 aspect-ratio 自己算 */
+  @media(max-width:900px){
+    .bolts{opacity:.4;}
+    .bolt.dk,.bolt.lt{width:min(260px,46vw);}
+    .bolt.dk{right:-9vw;}
+    .bolt.lt{right:-6vw;}
+  }
 
   /* ── 大數字 ── */
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3.4vw,56px);margin-top:clamp(24px,3.6vh,54px);}
