@@ -77,7 +77,7 @@ stroke-width="1.6"   stroke-linecap="round"  stroke-linejoin="round"
 | 2 | 這一年（24 專案／7 服務／12 產業）| 綠松石 |
 | 3 | 七種服務（清單）| 淡紫 |
 | 4 | 形象官網 ＋ 後台 | 深藍紫 |
-| 5 | 產業營運系統．美強光廣告科技（印刷收稿）| 淡紫 |
+| 5 | 產業營運系統．美強光廣告科技（**整套 ERP 用 AI 重做**）| 淡紫 |
 | 6 | 產業營運系統．小時光書店（零售 POS）| 深藍紫 |
 | 7 | 人資與內部管理（白標多租戶）| 葡萄紫 |
 | 8 | 行動 App | 淡紫 |
@@ -88,6 +88,18 @@ stroke-width="1.6"   stroke-linecap="round"  stroke-linejoin="round"
 | 13 | 侵掠如火．業務助理 | 深藍紫 |
 | 14 | 不動如山．數字人即時互動 | 深藍紫 |
 | 15 | 聯絡我們 | 綠松石 |
+
+### 第 5 頁的數字來源
+
+「舊 ERP 主檔 1,039 筆」＝ `LaiQuan-tech/nina` 的 `supabase/erp_data/`：
+商品主檔 699 ＋ 子產品 161 ＋ 加工項目 149 ＋ 主產品 30。
+
+⚠️ **這頁不要寫成「線上收稿系統」。** 收稿只是入口，實際做的是**整套 ERP 的 AI 化重建**：
+主檔數位化、AI 收稿驗檔開單、客戶管理（`customer_profiles`）、報價（`quotes`）、
+跟進追蹤（`customer_followups`）、會員系統，以及後台 AI 助理
+（`lib/admin/adminAssistant.ts`，可問客戶／跟進／報價／訂單／用料現況）。
+
+⚠️ **nina 的 README 是舊的**（只寫收稿與工單），不要拿它當範圍依據——要看 `app/` 路由與 `supabase/` schema。
 
 ### 風林火山 ↔ 四個產品
 
