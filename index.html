@@ -278,6 +278,13 @@
     .fs .icon{width:clamp(110px,16vw,150px);height:clamp(110px,16vw,150px);}
   }
 
+  /* 客戶名單有 14 個標籤，是全簡報最密的一頁。1920 下標籤會長到 34px、
+     多擠出一列（最後一列只剩 1 個）。固定在 30px（仍是紅線下限）才排得勻。
+     ⚠️ 只鎖這一頁；技術棧與人資那兩頁標籤少，維持 clamp 才有份量。
+     ⚠️ 一定要包在 min-width:641px 裡 —— #s3 是 ID 選擇器，特異性高過手機的
+        .tags span 規則，不限縮的話手機會吃到 30px，14 個標籤變成 14 列、溢出 447px。 */
+  @media(min-width:641px){ #s3 .tags span{font-size:30px;} }
+
   /* ═══ 手機（≤640px）═══
      ⚠️ 這是唯一可以低於 30px 的地方，而且是刻意的。
      「正文最小 30px」是**投影規格**——台下離螢幕好幾公尺才需要那麼大。
@@ -378,19 +385,19 @@
     <span class="eyebrow reveal">服務過的客戶</span>
     <h2 class="reveal" style="transition-delay:.05s">這些單位把系統<br>交給我們做。</h2>
     <div class="tags reveal" style="transition-delay:.14s">
-      <span>祐晨科技</span>
       <span>台灣大學農業經濟學系</span>
       <span>婦女權益促進發展基金會</span>
-      <span>美強光廣告科技</span>
-      <span>台北古亭和聖壇</span>
-      <span>國際花藝學術研討交流協會</span>
       <span>2026 國際扶輪年會</span>
+      <span>國際花藝學術研討交流協會</span>
+      <span>台北古亭和聖壇</span>
+      <span>美強光廣告科技</span>
+      <span>祐晨科技</span>
       <span>誠真生活 RealReal</span>
       <span>KCASA 工富家飾</span>
       <span>聯成外語</span>
-      <span>噢北鼻創意 OH BABY</span>
       <span>小時光書店</span>
       <span>好日子．快樂手</span>
+      <span>噢北鼻創意 OH BABY</span>
       <span>PikTag</span>
     </div>
   </div>
