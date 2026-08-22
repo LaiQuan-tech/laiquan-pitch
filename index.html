@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>萊乾資訊 LaiQuan｜公司介紹</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231b0a3f'/%3E%3Cpath d='M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z' fill='%232ad4cd'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231b0a3f'/%3E%3Cpath d='M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z' fill='%23ffce00'/%3E%3C/svg%3E">
 <meta name="description" content="萊乾資訊 LaiQuan — 把好點子通電上線 形象官網、電商交易、產業營運系統、人資系統、AI 應用、行動 App。這一年 24 個專案，橫跨 12 個產業。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,7 @@
     --turq:#2ad4cd;          /* 綠松石 */
     /* 點綴色 */
     --pink:#ff9ec0;          /* 淺粉 */
+    --gold:#ffce00;          /* 亮黃 —— 萊乾原本的品牌色，這版把它放回來當主要點綴 */
     --lilac:#e8dcf5;         /* 淡紫 */
 
     --card-deep:#2d1160;     /* 深底頁的卡片填色 */
@@ -51,7 +52,7 @@
   a{color:inherit;text-decoration:none;}
 
   .progress{position:fixed;inset:0 0 auto 0;height:5px;z-index:80;pointer-events:none;}
-  .progress i{display:block;height:100%;width:0;background:var(--turq);transition:width .5s var(--ease),background .4s;}
+  .progress i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s var(--ease),background .4s;}
 
   .pager{position:fixed;left:clamp(20px,3vw,44px);bottom:clamp(18px,2.4vw,32px);z-index:70;
     display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;}
@@ -81,16 +82,18 @@
     background:var(--violet-deep);color:#fff;}
   .slide.grape{background:var(--grape);}
   .slide.turq{background:var(--turq);color:var(--violet-deep);}
+  .slide.gold{background:var(--gold);color:var(--violet-deep);}
   .slide.lilac{background:var(--lilac);color:var(--violet-deep);}
   .slide.cover{overflow:hidden;}
   .inner{width:100%;max-width:1180px;position:relative;z-index:2;}
   .narrow{max-width:920px;}
 
   /* 眉標：純文字＋字距，不用色塊 */
-  .eyebrow{display:block;font-size:clamp(30px,1.7vw,33px);font-weight:800;color:var(--turq);
+  .eyebrow{display:block;font-size:clamp(30px,1.7vw,33px);font-weight:800;color:var(--gold);
     letter-spacing:.16em;margin-bottom:clamp(16px,2.2vh,28px);}
   .grape .eyebrow{color:var(--pink);}
   .turq .eyebrow{color:var(--on-turq);}
+  .gold .eyebrow{color:#6b4c00;}
   .lilac .eyebrow{color:var(--peacock);}
 
   h1{font-family:var(--display);font-size:clamp(54px,9.2vw,128px);font-weight:800;letter-spacing:-.015em;line-height:1.04;text-wrap:balance;}
@@ -98,10 +101,12 @@
   .lead{font-size:clamp(30px,2.3vw,38px);font-weight:500;color:var(--on-deep);line-height:1.5;max-width:960px;margin:clamp(16px,2.2vh,30px) auto 0;text-wrap:balance;}
   .grape .lead{color:#d6c4f2;}
   .turq .lead{color:var(--on-turq);}
+  .gold .lead{color:#6b4c00;}
   .lilac .lead{color:var(--on-lilac);}
   .fine{font-size:clamp(30px,1.6vw,33px);color:var(--on-deep-2);margin-top:clamp(14px,1.8vh,24px);font-weight:600;text-wrap:balance;}
   .grape .fine{color:#bda9e0;}
   .turq .fine{color:var(--on-turq);}
+  .gold .fine{color:#6b4c00;}
   .lilac .fine{color:var(--on-lilac-2);}
 
   /* 強調：只換顏色。不畫底線、不填色塊。
@@ -110,13 +115,14 @@
   em{font-style:normal;color:var(--pink);}
   .grape em{color:var(--turq);}
   .turq em{color:var(--violet-deep);}
+  .gold em{color:var(--grape);}
   .lilac em{color:var(--peacock);}
 
   /* 封面閃電：綠松石 ＋ 淺粉疊層，深藍紫底上最搶眼的一組 */
   .bolts{position:absolute;inset:0;z-index:1;pointer-events:none;}
   .bolt{position:absolute;clip-path:polygon(58% 0,18% 52%,46% 52%,30% 100%,82% 40%,52% 40%);}
-  .bolt.dk{right:5vw;top:12vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--turq);opacity:.92;}
-  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--pink);opacity:.5;}
+  .bolt.dk{right:5vw;top:12vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--gold);opacity:.95;}
+  .bolt.lt{right:7.6vw;top:9vh;width:min(360px,27vw);height:min(520px,50vh);background:var(--turq);opacity:.55;}
   .turq .bolt.dk{background:var(--violet-deep);opacity:.9;}
   .turq .bolt.lt{background:var(--grape);opacity:.45;}
   @media(max-width:900px){.bolts{opacity:.4;}.bolt.dk{right:-6vw;}.bolt.lt{right:-3.5vw;}}
@@ -128,6 +134,7 @@
   .stats .n s{text-decoration:none;font-size:.44em;}
   .stats .l{font-size:clamp(30px,1.8vw,34px);color:var(--on-deep);margin-top:12px;font-weight:700;}
   .turq .stats .l{color:var(--on-turq);}
+  .gold .stats .l{color:#6b4c00;}
   .lilac .stats .l{color:var(--on-lilac);}
 
   /* ── 大字清單 ── */
@@ -162,6 +169,29 @@
     box-shadow:7px 8px 0 rgba(0,0,0,.42);}
   .grape .card{background:var(--card-grape);}
   .lilac .card{background:#fff;border-color:var(--violet-deep);box-shadow:7px 8px 0 var(--turq);}
+  /* 巴黎式多色：同一頁的卡片投影輪替三色，不要整排同一色 */
+  .lilac .grid .cell:nth-child(3n+1){box-shadow:7px 8px 0 var(--gold);}
+  .lilac .grid .cell:nth-child(3n+2){box-shadow:7px 8px 0 var(--turq);}
+  .lilac .grid .cell:nth-child(3n+3){box-shadow:7px 8px 0 var(--pink);}
+  .grid .cell:nth-child(3n+1){border-color:var(--gold);}
+  .grid .cell:nth-child(3n+2){border-color:var(--turq);}
+  .grid .cell:nth-child(3n+3){border-color:var(--pink);}
+  .lilac .grid .cell,.turq .grid .cell,.gold .grid .cell{border-color:var(--violet-deep);}
+  /* steps 的格線是 bx,箭頭,bx,箭頭,bx —— 要用 nth-child(1/3/5)，
+     用 nth-of-type 會把箭頭也算進去，顏色順序會跑掉。 */
+  .lilac .steps .bx:nth-child(1){box-shadow:6px 7px 0 var(--gold);}
+  .lilac .steps .bx:nth-child(3){box-shadow:6px 7px 0 var(--turq);}
+  .lilac .steps .bx:nth-child(5){box-shadow:6px 7px 0 var(--pink);}
+  .steps .bx:nth-child(1){border-color:var(--gold);}
+  .steps .bx:nth-child(3){border-color:var(--turq);}
+  .steps .bx:nth-child(5){border-color:var(--pink);}
+  .lilac .steps .bx,.turq .steps .bx,.gold .steps .bx{border-color:var(--violet-deep);}
+  .tags span:nth-child(4n+1){border-color:var(--gold);}
+  .tags span:nth-child(4n+2){border-color:var(--turq);}
+  .tags span:nth-child(4n+3){border-color:var(--pink);}
+  .tags span:nth-child(4n+4){border-color:var(--lilac);}
+  .lilac .tags span:nth-child(4n+1),.turq .tags span:nth-child(4n+1){box-shadow:3px 4px 0 var(--gold);}
+  .lilac .tags span:nth-child(4n+3),.turq .tags span:nth-child(4n+3){box-shadow:3px 4px 0 var(--pink);}
   .turq .card{background:#fff;border-color:var(--violet-deep);box-shadow:7px 8px 0 var(--violet-deep);}
 
   /* ── 三步驟 ── */
@@ -190,13 +220,16 @@
   /* icon 一律同規格：24x24 viewBox、stroke-width 1.6、round cap/join、無填色。
      新增第五個 icon 也照這組參數，否則四張並排時筆畫粗細會不一致。 */
   .icon{width:clamp(140px,17vw,260px);height:clamp(140px,17vw,260px);color:var(--turq);flex:none;}
+  /* 四個 icon 各給一色：形狀負責語意，顏色負責區分與活潑。線條規格仍然一致。 */
+  .icon.c-wind{color:var(--turq);} .icon.c-forest{color:var(--lilac);}
+  .icon.c-fire{color:var(--gold);} .icon.c-mountain{color:var(--pink);}
   .icon svg{width:100%;height:100%;display:block;}
   .iconrow{display:flex;justify-content:center;align-items:flex-start;gap:clamp(16px,3.2vw,52px);margin-top:clamp(18px,2.6vh,34px);}
   .iconrow .ir{display:flex;flex-direction:column;align-items:center;gap:9px;}
   .iconrow .icon{width:clamp(56px,6.4vw,92px);height:clamp(56px,6.4vw,92px);}
   .iconrow .irz{font-family:var(--display);font-size:clamp(30px,1.6vw,32px);font-weight:800;letter-spacing:.1em;color:var(--pink);}
   .iconrow .irn{font-family:var(--display);font-size:clamp(30px,1.8vw,34px);font-weight:800;color:#fff;text-wrap:balance;}
-  .turq .iconrow .icon{color:var(--violet-deep);}
+
   .turq .iconrow .irz{color:var(--on-turq);}
   .turq .iconrow .irn{color:var(--violet-deep);}
   .fs .zh{font-family:var(--display);font-size:clamp(30px,2.4vw,40px);font-weight:800;color:var(--pink);letter-spacing:.14em;margin-bottom:14px;}
@@ -238,7 +271,7 @@
 <body>
 
 <div class="progress"><i id="pfill"></i></div>
-<div class="pager" id="pager"><span class="mk" id="pmk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z" fill="#2ad4cd"/></svg></span><span class="no" id="pno"><b id="pnum">1</b><span id="ptot"> / 15</span></span></div>
+<div class="pager" id="pager"><span class="mk" id="pmk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M37 8 L20 36 L32 36 L28 56 L46 30 L34 30 Z" fill="#ffce00"/></svg></span><span class="no" id="pno"><b id="pnum">1</b><span id="ptot"> / 15</span></span></div>
 <nav class="nav" id="dots" aria-label="投影片導覽"></nav>
 
 <!-- 1 封面 -->
@@ -253,7 +286,7 @@
 </section>
 
 <!-- 2 這一年 -->
-<section class="slide turq" id="s2" data-label="這一年">
+<section class="slide gold" id="s2" data-label="這一年">
   <div class="inner">
     <span class="eyebrow reveal">這一年</span>
     <h2 class="reveal" style="transition-delay:.05s">我們做了這些。</h2>
@@ -372,10 +405,10 @@
     <h2 class="reveal" style="transition-delay:.05s">風林火山。</h2>
     <p class="lead reveal" style="transition-delay:.12s">其疾如風，其徐如林，<br>侵掠如火，不動如山。</p>
     <div class="iconrow reveal" style="transition-delay:.2s">
-      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div><div class="irz">疾如風</div><div class="irn">線上客服與即時報價</div></div>
-      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div><div class="irz">徐如林</div><div class="irn">語意標籤</div></div>
-      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div><div class="irz">侵掠如火</div><div class="irn">數字人即時互動</div></div>
-      <div class="ir"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div><div class="irz">不動如山</div><div class="irn">業務助理</div></div>
+      <div class="ir"><div class="icon c-wind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div><div class="irz">疾如風</div><div class="irn">線上客服與即時報價</div></div>
+      <div class="ir"><div class="icon c-forest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div><div class="irz">徐如林</div><div class="irn">語意標籤</div></div>
+      <div class="ir"><div class="icon c-fire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div><div class="irz">侵掠如火</div><div class="irn">數字人即時互動</div></div>
+      <div class="ir"><div class="icon c-mountain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div><div class="irz">不動如山</div><div class="irn">業務助理</div></div>
     </div>
   </div>
 </section>
@@ -384,7 +417,7 @@
 <section class="slide" id="s11" data-label="疾如風．線上客服與即時報價">
   <div class="inner">
     <div class="fs">
-      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
+      <div class="icon c-wind reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">疾如風．線上客服與即時報價</div>
         <h2 class="reveal" style="transition-delay:.12s">天下武功，<br>唯快不破。</h2>
@@ -399,7 +432,7 @@
 <section class="slide" id="s12" data-label="徐如林．語意標籤">
   <div class="inner">
     <div class="fs">
-      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
+      <div class="icon c-forest reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 7.5 13h9L12 2.5Z"/><path d="M12 13v7.5"/><path d="M4 7 1 15h6L4 7Z"/><path d="M4 15v5.5"/><path d="M20 7l-3 8h6l-3-8Z"/><path d="M20 15v5.5"/><path d="M1 20.5h22"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">徐如林．語意標籤</div>
         <h2 class="reveal" style="transition-delay:.12s">化繁為簡，<br>亂中有序。</h2>
@@ -414,7 +447,7 @@
 <section class="slide" id="s13" data-label="侵掠如火．數字人即時互動">
   <div class="inner">
     <div class="fs">
-      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
+      <div class="icon c-fire reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">侵掠如火．數字人即時互動</div>
         <h2 class="reveal" style="transition-delay:.12s">視覺震撼，<br>引爆情感。</h2>
@@ -429,7 +462,7 @@
 <section class="slide" id="s14" data-label="不動如山．業務助理">
   <div class="inner">
     <div class="fs">
-      <div class="icon reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
+      <div class="icon c-mountain reveal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
       <div>
         <div class="zh reveal" style="transition-delay:.08s">不動如山．業務助理</div>
         <h2 class="reveal" style="transition-delay:.12s">行事沉穩，<br>最強後盾。</h2>
@@ -450,7 +483,7 @@
       <div class="cbox"><div class="cl">EMAIL</div><div class="cv">lqtech2026@gmail.com</div></div>
       <div class="cbox"><div class="cl">WEB</div><div class="cv">laiquan.co</div></div>
     </div>
-    <p class="fine reveal" style="transition-delay:.26s">你現在看的這份簡報，也是我們做的</p>
+    <p class="fine reveal" style="transition-delay:.26s">您現在看的這份簡報，也是我們用 AI 做的</p>
   </div>
 </section>
 
@@ -483,11 +516,11 @@
     pnum.textContent=(i+1);
     // 深色頁把頁碼與進度條轉亮，否則看不見
     // 淡紫與綠松石是淺底，頁碼／圓點要轉深；其餘深底維持亮色
-    var lightGround=slides[i].classList.contains('lilac')||slides[i].classList.contains('turq');
+    var lightGround=slides[i].classList.contains('lilac')||slides[i].classList.contains('turq')||slides[i].classList.contains('gold');
     document.body.dataset.ground = lightGround ? 'light' : 'dark';
     pno.style.color = lightGround ? '#1b0a3f' : '#fff';
     pmk.style.background = lightGround ? '#1b0a3f' : '#4a1b85';
-    pfill.style.background = lightGround ? '#1b0a3f' : '#2ad4cd';
+    pfill.style.background = lightGround ? '#1b0a3f' : '#ffce00';
   }
   dots[0].setAttribute('data-active','true');
   document.body.dataset.ground='dark';
